@@ -42,7 +42,7 @@ class CustomBottomNavBar extends StatelessWidget {
                   color: MenuState.favourite == selectedMenu
                       ? kPrimaryColor : inActiveIconColor,),
                 onPressed: () {
-                  Get.to(()=> CartScreen());
+                  Get.to( CartScreen());
                 },
               ),
               IconButton(
@@ -52,7 +52,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor : inActiveIconColor,
                 ),
                 onPressed: () =>
-                    Get.to(()=> HomeScreen()),
+                    Get.to( HomeScreen()),
               ),
               IconButton(
                 icon: SvgPicture.asset(
@@ -61,7 +61,7 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? kPrimaryColor : inActiveIconColor,
                 ),
                 onPressed: () =>
-                    Get.to(()=> ProfileScreen()),
+                    Get.to( ProfileScreen()),
               ),
             ],
         )

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:Step/screens/splash/splash_screen.dart';
 
 import 'components/GetStorage.dart';
+import 'components/size_config.dart';
 
 
 
@@ -14,6 +15,7 @@ class Splash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     Future.delayed(const Duration(seconds: 2), () {
       if (isShowOnBoardingPageValue != null) {
         Get.offAll(HomeScreen());

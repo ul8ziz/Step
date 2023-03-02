@@ -5,8 +5,8 @@ import 'package:Step/screens/home/home_screen.dart';
 import 'package:Step/screens/profile/profile_screen.dart';
 
 import '../main.dart';
+import '../screens/Latters/Latters.dart';
 import 'constants.dart';
-import '../screens/cart/cart_screen.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
@@ -37,20 +37,22 @@ class CustomBottomNavBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              IconButton(
-                icon: SvgPicture.asset("assets/icons/Heart Icon.svg",
-                  color: MenuState.favourite == selectedMenu
-                      ? kPrimaryColor : inActiveIconColor,),
-                onPressed: () {
-                  Get.to( CartScreen());
-                },
+              Container(
+                child: IconButton(
+                  icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg",
+
+                    color: MenuState.notification == selectedMenu
+                        ? kPrimaryColor : inActiveIconColor,),
+                  onPressed: () {
+                    Get.to( Latters());
+                  },
+                ),
               ),
               IconButton(
                 icon: SvgPicture.asset(
                   "assets/icons/homegray.svg",
                   color: MenuState.home == selectedMenu
-                      ? kPrimaryColor : inActiveIconColor,
-                ),
+                      ? kPrimaryColor : inActiveIconColor,),
                 onPressed: () =>
                     Get.to( HomeScreen()),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Step/components/coustom_bottom_nav_bar.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
@@ -12,58 +13,62 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFEECDF),
-        centerTitle: true,
-        title: Text('الرئيسية',
-        style: TextStyle(
-          color: kPrimaryColor,
-        ),),
-        leading: SizedBox(),
-      ),
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: [
-            SizedBox(height: 50,),
-
-            Container(
-              height: 150,
-              width: 350,
-                decoration: BoxDecoration(
-                    color: Color(0xFFF5F6F9),
-                    borderRadius: BorderRadius.circular(15),
-                )
-            ),
-            Row(
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-             widgetButtonSwiper(color: kPrimaryColor),
-             widgetButtonSwiper(color: Colors.black12),
-             widgetButtonSwiper(color: Colors.black12),
-           ],),
-            SizedBox(height: 50,),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .06),
-              child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .005),
-                  child: GridView.count(
-                    shrinkWrap: true,
-                    primary: false,
-                    padding: const EdgeInsets.all(20),
-                    crossAxisSpacing: MediaQuery.of(context).size.width * .04,
-                    mainAxisSpacing: MediaQuery.of(context).size.width * .04,
-                    crossAxisCount: 2,
-                    children: <Widget>[
-                      items(),
-                      items(),
-                      items(),
-                      items(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              HomeHeader(),
+              SizedBox(height: 50,),
+              Container(
+                height: 150,
+                width: 350,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/logo.png"),
+                      ),
+                    color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 6,
+                          offset: const Offset(0, 5)),
                     ],
-                  )),
-            ),
-          ],
+                  )
+              ),
+              SizedBox(height: 10,),
+              Row(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+               widgetButtonSwiper(color: kPrimaryColor),
+               widgetButtonSwiper(color: Colors.black12),
+               widgetButtonSwiper(color: Colors.black12),
+             ],),
+              SizedBox(height: 50,),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .06),
+                child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .005),
+                    child: GridView.count(
+                      shrinkWrap: true,
+                      primary: false,
+                      padding: const EdgeInsets.all(20),
+                      crossAxisSpacing: MediaQuery.of(context).size.width * .04,
+                      mainAxisSpacing: MediaQuery.of(context).size.width * .04,
+                      crossAxisCount: 2,
+                      children: <Widget>[
+                        items(title: 'دفتر المتابعه'),
+                        items(title: 'اشعارات الرسوم '),
+                        items(title: 'اشعارات النتائج'),
+                        items(title: ' سلوك الطالب'),
+                      ],
+                    )),
+              ),
+            ],
+          ),
         )),
       ),
       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
@@ -80,22 +85,41 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget items(){
+  Widget items( {title}){
     return  Container(
       decoration: BoxDecoration(
-        color: Color(0xFFF5F6F9),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 3,
+              blurRadius: 9,
+              offset: const Offset(2, 2)),
+        ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(Icons.nature_people_sharp,size: 50,),
-          Text('data',
+      Container(
+        width: 60,
+        height: 60,
+        child:  SvgPicture.asset(
+        "assets/icons/items.svg",
+        ),),
+
+/*
+          Container(
+              width: 80,
+              height: 80,
+              child: Image.asset("assets/images/items.png",)),
+*/
+          Text(title,
           style: TextStyle(
             color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontWeight: FontWeight.normal,
+            fontSize: 18,
           ),)
         ],
       ),

@@ -8,7 +8,7 @@ void main() async {
   await GetStorage.init();
   runApp(MyApp());
 }
-enum MenuState { home, favourite, message, profile }
+enum MenuState { home, notification, profile }
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

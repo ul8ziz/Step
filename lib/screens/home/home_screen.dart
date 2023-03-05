@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:Step/components/coustom_bottom_nav_bar.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
 import '../../main.dart';
+import '../Fees/Fees_Screen.dart';
+import '../Notebook/Notebook_Screen.dart';
+import '../Results/Results_Screen.dart';
 import 'components/body.dart';
 import 'components/home_header.dart';
 
@@ -60,10 +65,15 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: MediaQuery.of(context).size.width * .04,
                       crossAxisCount: 2,
                       children: <Widget>[
-                        items(title: 'دفتر المتابعه'),
-                        items(title: 'اشعارات الرسوم '),
-                        items(title: 'اشعارات النتائج'),
-                        items(title: ' سلوك الطالب'),
+                        items(title: 'دفتر المتابعه',
+                            go: (){ Get.to(Notebook_Screen());}
+                        ),
+                        items(title: 'اشعارات الرسوم ',
+                            go: (){ Get.to(Fees_Screen());}
+                        ),
+                        items(title: 'اشعارات النتائج',
+                            go: (){ Get.to(Results_Screen());}
+                        ),
                       ],
                     )),
               ),
@@ -85,43 +95,46 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget items( {title}){
-    return  Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 3,
-              blurRadius: 9,
-              offset: const Offset(2, 2)),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-      Container(
-        width: 60,
-        height: 60,
-        child:  SvgPicture.asset(
-        "assets/icons/items.svg",
-        ),),
+  Widget items( {title,go}){
+    return  InkWell(
+      onTap: go,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 3,
+                blurRadius: 9,
+                offset: const Offset(2, 2)),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+        Container(
+          width: 60,
+          height: 60,
+          child:  SvgPicture.asset(
+          "assets/icons/items.svg",
+          ),),
 
 /*
-          Container(
-              width: 80,
-              height: 80,
-              child: Image.asset("assets/images/items.png",)),
+            Container(
+                width: 80,
+                height: 80,
+                child: Image.asset("assets/images/items.png",)),
 */
-          Text(title,
-          style: TextStyle(
-            color: kPrimaryColor,
-            fontWeight: FontWeight.normal,
-            fontSize: 18,
-          ),)
-        ],
+            Text(title,
+            style: TextStyle(
+              color: kPrimaryColor,
+              fontWeight: FontWeight.normal,
+              fontSize: 18,
+            ),)
+          ],
+        ),
       ),
     );
   }

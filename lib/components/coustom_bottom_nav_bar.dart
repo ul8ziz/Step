@@ -49,16 +49,19 @@ class CustomBottomNavBar extends StatelessWidget {
                 ),
               ),
               IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/homegray.svg",
-                  color: MenuState.home == selectedMenu
-                      ? kPrimaryColor : inActiveIconColor,),
+                icon: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: SvgPicture.asset(
+                    "assets/icons/homegray.svg",
+                    color: MenuState.home == selectedMenu
+                        ? kPrimaryColor : inActiveIconColor,),
+                ),iconSize:3 ,
                 onPressed: () =>
                     Get.to( HomeScreen()),
               ),
               IconButton(
                 icon: SvgPicture.asset(
-                  "assets/icons/User Icon.svg",
+                  "assets/icons/Settings.svg",
                   color: MenuState.profile == selectedMenu
                       ? kPrimaryColor : inActiveIconColor,
                 ),

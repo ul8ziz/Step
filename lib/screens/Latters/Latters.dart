@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
 import '../../main.dart';
+import '../Latters/components/home_header.dart';
 
 class Latters extends StatelessWidget {
   static String routeName = "/latters";
@@ -17,7 +18,7 @@ class Latters extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-
+                  HomeHeader(),
                 ],
               ),
             )),

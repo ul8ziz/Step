@@ -66,13 +66,20 @@ class HomeScreen extends StatelessWidget {
                       crossAxisCount: 2,
                       children: <Widget>[
                         items(title: 'دفتر المتابعه',
-                            go: (){ Get.to(Notebook_Screen());}
+                            goTo: (){ Get.to(Notebook_Screen());},
+                          svgFile: "assets/icons/notbook.svg"
                         ),
                         items(title: 'اشعارات الرسوم ',
-                            go: (){ Get.to(Fees_Screen());}
+                            goTo: (){ Get.to(Fees_Screen());},
+                            svgFile: "assets/icons/notfation.svg"
                         ),
                         items(title: 'اشعارات النتائج',
-                            go: (){ Get.to(Results_Screen());}
+                            goTo: (){ Get.to(Results_Screen());},
+                            svgFile: "assets/icons/pngegg.svg"
+                        ),
+                        items(title: 'ملاحظات',
+                            goTo: (){ Get.to(Results_Screen());},
+                            svgFile: "assets/icons/notes.svg"
                         ),
                       ],
                     )),
@@ -95,9 +102,9 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget items( {title,go}){
+  Widget items( {title,goTo,svgFile}){
     return  InkWell(
-      onTap: go,
+      onTap: goTo,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -107,7 +114,8 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 3,
                 blurRadius: 9,
-                offset: const Offset(2, 2)),
+                offset: const Offset(2, 2)
+            ),
           ],
         ),
         child: Column(
@@ -118,21 +126,16 @@ class HomeScreen extends StatelessWidget {
           width: 60,
           height: 60,
           child:  SvgPicture.asset(
-          "assets/icons/items.svg",
-          ),),
+          svgFile,color: kPrimaryColor,),
+        ),
 
-/*
-            Container(
-                width: 80,
-                height: 80,
-                child: Image.asset("assets/images/items.png",)),
-*/
-            Text(title,
-            style: TextStyle(
-              color: kPrimaryColor,
-              fontWeight: FontWeight.normal,
-              fontSize: 18,
-            ),)
+        Text(title,
+        style: TextStyle(
+          color: kPrimaryColor,
+          fontWeight: FontWeight.normal,
+          fontSize: 18,
+        ),
+        ),
           ],
         ),
       ),

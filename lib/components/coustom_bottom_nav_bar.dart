@@ -37,16 +37,17 @@ class CustomBottomNavBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Container(
-                child: IconButton(
-                  icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg",
 
+              IconButton(
+                icon: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: SvgPicture.asset(
+                    "assets/icons/notification.svg",
                     color: MenuState.notification == selectedMenu
                         ? kPrimaryColor : inActiveIconColor,),
-                  onPressed: () {
-                    Get.to( Latters());
-                  },
-                ),
+                ),iconSize:3 ,
+                onPressed: () =>
+                    Get.to( Latters()),
               ),
               IconButton(
                 icon: Padding(

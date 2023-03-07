@@ -26,7 +26,7 @@ class HomeHeader extends StatelessWidget {
               offset: const Offset(0, 2)),
         ],
       ),
-      child:Center(child: Text('.............',
+      child:Center(child: Text('الاشعارات',
         style: TextStyle(
           color: kPrimaryColor,
           fontWeight: FontWeight.bold,

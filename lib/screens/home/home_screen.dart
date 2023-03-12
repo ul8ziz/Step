@@ -10,7 +10,7 @@ import '../../main.dart';
 import '../Fees/Fees_Screen.dart';
 import '../Notebook/Notebook_Screen.dart';
 import '../Results/Results_Screen.dart';
-import 'components/body.dart';
+import 'package:card_swiper/card_swiper.dart';
 import 'components/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,32 +26,8 @@ class HomeScreen extends StatelessWidget {
             children: [
               HomeHeader(),
               SizedBox(height: 50,),
-              Container(
-                height: 150,
-                width: 350,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/logo.png"),
-                      ),
-                    color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 6,
-                          offset: const Offset(0, 5)),
-                    ],
-                  )
-              ),
-              SizedBox(height: 10,),
-              Row(
-               mainAxisAlignment: MainAxisAlignment.center,
-               children: [
-               widgetButtonSwiper(color: kPrimaryColor),
-               widgetButtonSwiper(color: Colors.black12),
-               widgetButtonSwiper(color: Colors.black12),
-             ],),
+              OfferWidget(context),
+
               SizedBox(height: 50,),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .06),
@@ -100,6 +76,79 @@ class HomeScreen extends StatelessWidget {
           color: color ?? kPrimaryColor,
           borderRadius: BorderRadius.circular(20)),
     );
+  }
+
+  Widget OfferWidget(context) {
+    return
+      Visibility(
+          visible: true,
+          child: Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .9,
+                height: MediaQuery.of(context).size.height * .20,
+                child: Swiper(
+                  duration:1500,
+                  outer: true,
+                  itemCount: 3,
+                  autoplay: true,
+                  layout: SwiperLayout.DEFAULT,
+                  itemBuilder: (context, index) {
+                    return Container(
+                        margin: const EdgeInsets.only(left: 20),
+                        height: MediaQuery.of(context).size.height * .2,
+                        width:  MediaQuery.of(context).size.width * .5,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Color(0xFFCDCDCD)),
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/logo.png"),
+                          ),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                        )
+                    );
+                    var i =index;
+                  },
+                  pagination: SwiperPagination(
+                      builder:  SwiperCustomPagination(builder: (BuildContext context, SwiperPluginConfig config) {
+                        return
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                for (int i = 0; i < 3; i++)
+                                  i==config.activeIndex?
+                                  Container(
+                                    margin: const EdgeInsets.symmetric(horizontal: 2),
+                                    height: 4,
+                                    width: 22,
+                                    decoration: BoxDecoration(
+                                      color: kPrimaryColor,
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                  ):
+                                  Container(
+                                    margin: const EdgeInsets.symmetric(horizontal: 2),
+                                    height: 4,
+                                    width: 12,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFFCDCDCD),
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          );
+                      }
+                      )
+                  ),
+                ),
+              ),
+            ],
+          )
+      );
   }
 
   Widget items( {title,goTo,svgFile}){

@@ -21,6 +21,7 @@ dependencies:
   flutter_svg: ^0.22.0 # help us to use SVG in our app
   get: ^4.6.5
   get_storage: ^2.0.3
+  persistent_bottom_nav_bar: ^5.0.2
 
 
 dev_dependencies:

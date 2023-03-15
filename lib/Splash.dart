@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:Step/screens/splash/splash_screen.dart';
 
+import 'BottomNavBar.dart';
 import 'components/GetStorage.dart';
 import 'components/size_config.dart';
 
@@ -18,7 +19,7 @@ class Splash extends StatelessWidget {
     SizeConfig().init(context);
     Future.delayed(const Duration(seconds: 2), () {
       if (isShowOnBoardingPageValue != null) {
-        Get.offAll(HomeScreen());
+        Get.offAll(BottomNavBar());
       }else {
         Get.offAll( SplashScreen());
       }

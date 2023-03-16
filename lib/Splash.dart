@@ -10,8 +10,6 @@ import 'components/size_config.dart';
 
 
 class Splash extends StatelessWidget {
-  static String routeName = "/Splashh";
-
   var isShowOnBoardingPageValue = readGetStorage(isShowOnBoardingPage);
 
   @override
@@ -35,7 +33,6 @@ class Splash extends StatelessWidget {
                   fit: BoxFit.fitWidth),
               color: Colors.white,
             ),
-
             ),
           ),
         );

@@ -8,8 +8,13 @@ import 'components/GetStorage.dart';
 import 'components/size_config.dart';
 
 
+class Splash extends StatefulWidget {
+  const Splash({Key? key}) : super(key: key);
 
-class Splash extends StatelessWidget {
+  @override
+  State<StatefulWidget> createState() => _SplashState();
+}
+class _SplashState extends State<Splash> {
   var isShowOnBoardingPageValue = readGetStorage(isShowOnBoardingPage);
 
   @override

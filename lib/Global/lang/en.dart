@@ -10,5 +10,5 @@ const Map<String, String> en = {
   'mobileNumber': 'Mobile Number',
   'identificationNumber': 'Identification Number',
   'email': 'Email',
-  'main': 'Main',
+  'main': 'Home',
 };

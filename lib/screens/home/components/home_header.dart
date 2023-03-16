@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../components/constants.dart';
 import '../../../components/size_config.dart';
@@ -27,7 +28,7 @@ class HomeHeader extends StatelessWidget {
               offset: const Offset(0, 2)),
         ],
       ),
-      child:Center(child: Text('الرئيسية',
+      child:Center(child: Text('main'.tr,
         style: TextStyle(
           color: kPrimaryColor,
           fontWeight: FontWeight.bold,

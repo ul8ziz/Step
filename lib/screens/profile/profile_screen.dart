@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../BottomNavBar.dart';
+import '../../Global/transaltion.dart';
 import '../../components/GetStorage.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
@@ -12,7 +14,8 @@ import '../sign_in/sign_in_screen.dart';
 import '../team/Team_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
-  static String routeName = "/profile";
+  languageController controller = Get.put(languageController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,6 +153,9 @@ class ProfileScreen extends StatelessWidget {
                                   child: Text('عربي',),
                                   value: "عربي",
                                   onTap: () {
+                                    controller
+                                        .changeLanguageArabic();
+                                    Get.offAll(BottomNavBar(i: 2,));
 
                                   }),
                               DropdownMenuItem(
@@ -158,6 +164,9 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                   value: "English",
                                   onTap: () {
+                                    controller.changeLanguageEnglish();
+                                    Get.offAll(BottomNavBar(i: 2,));
+
                                   }),
                             ],
                             onChanged: (value) {},
@@ -198,6 +207,8 @@ class ProfileScreen extends StatelessWidget {
                                   child: Text('داكن',),
                                   value: "عربي",
                                   onTap: () {
+                                    controller
+                                        .changeLanguageArabic();
 
                                   }),
                               DropdownMenuItem(
@@ -206,6 +217,7 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                   value: "English",
                                   onTap: () {
+                                    controller.changeLanguageEnglish();
                                   }),
                             ],
                             onChanged: (value) {},

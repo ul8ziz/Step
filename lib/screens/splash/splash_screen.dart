@@ -107,7 +107,7 @@ class _SplashScreenState extends State<SplashScreen> {
       return AnimatedContainer(
         duration: kAnimationDuration,
         margin: EdgeInsets.only(right: 5),
-        height: 9,
+        height: 5,
         width: currentPage == index ? 40 : 22,
         decoration: BoxDecoration(
           color: currentPage == index ? kPrimaryColor : Color(0xFFD8D8D8),

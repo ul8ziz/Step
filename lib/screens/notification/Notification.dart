@@ -1,12 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../components/constants.dart';
 import '../../components/size_config.dart';
-import '../../main.dart';
-import '../Latters/components/home_header.dart';
+import '../Notification/components/home_header.dart';
 
 class Latters extends StatelessWidget {
   static String routeName = "/latters";

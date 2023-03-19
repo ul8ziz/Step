@@ -5,7 +5,7 @@ import '../../../components/constants.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
-import '../../../components/loginController.dart';
+import '../../../Controllers/LoginController.dart';
 import '../../../components/size_config.dart';
 import '../../home/home_screen.dart';
 

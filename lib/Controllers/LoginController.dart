@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../BottomNavBar.dart';
 import '../Global/enumMethod.dart';
-import '../Global/globalUrl.dart';
-import '../global/globalUrl.dart';
-import '../global/objects.api.dart';
 import '../global/queryModel.dart';
-import 'GetStorage.dart';
-import 'constants.dart';
+import '../components/GetStorage.dart';
+import '../components/constants.dart';
 
 class LoginController extends GetxController {
   RxBool loading = false.obs;

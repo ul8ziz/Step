@@ -1,11 +1,13 @@
-import 'package:Step/screens/Latters/Latters.dart';
+import 'package:Step/screens/notification/Notification.dart';
 import 'package:Step/screens/home/home_screen.dart';
 import 'package:Step/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
+import 'Controllers/NotificationController.dart';
 import 'components/constants.dart';
 
 class BottomNavBar extends StatefulWidget {

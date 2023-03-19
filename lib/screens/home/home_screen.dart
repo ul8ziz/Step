@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import '../../Controllers/NotificationController.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
 import '../Fees/Fees_Screen.dart';
@@ -10,6 +11,8 @@ import 'package:card_swiper/card_swiper.dart';
 import 'components/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
+  final NotificationController notificationController = Get.put(NotificationController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

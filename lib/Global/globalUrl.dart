@@ -1,6 +1,6 @@
-const baseUrl = "http://20.74.150.110:8083/visualbase/api/v2/";
+const baseUrl = "https://ul8ziz.online/school/masterApi/api/";
 
-var details = "details";
+var loginFun = "auth_api/login.php";
 var action = "Action";
 var add = "add";
 var func = "func";

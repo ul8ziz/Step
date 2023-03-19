@@ -1,4 +1,5 @@
 import 'package:Step/screens/home/home_screen.dart';
+import 'package:Step/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:Step/screens/splash/splash_screen.dart';
@@ -16,13 +17,19 @@ class Splash extends StatefulWidget {
 }
 class _SplashState extends State<Splash> {
   var isShowOnBoardingPageValue = readGetStorage(isShowOnBoardingPage);
+  var isShowLoginPageValue = readGetStorage(isShowLoginPage);
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     Future.delayed(const Duration(seconds: 2), () {
       if (isShowOnBoardingPageValue != null) {
-        Get.offAll(BottomNavBar());
+        if (isShowLoginPageValue != null) {
+          Get.offAll(BottomNavBar());
+        }
+        else{
+        Get.offAll(SignInScreen());
+        }
       }else {
         Get.offAll( SplashScreen());
       }

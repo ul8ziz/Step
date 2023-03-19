@@ -6,7 +6,7 @@ import 'globalUrl.dart';
 getDate({
   var method,
   var url,
-  required Map<String, dynamic> body,
+  required Map<dynamic, dynamic> body,
   Map<String, String>? headers,
   returnStatusCode = false,
   errorLogin = false,
@@ -23,7 +23,9 @@ getDate({
     print('coronation2 ${method.toString()=='HttpMethod.put'}');
     if (method.toString() == 'HttpMethod.post') {
       var result = await http.post(requestUri,
-          body: requestBody, headers: headers ?? requestHeader);
+          body: requestBody,
+          headers: headers ?? requestHeader
+      );
       print('requestUri $requestUri');
       print('requestBody $requestBody');
       print('result ${result.body}');
@@ -60,7 +62,9 @@ getDate({
     }
     if (method.toString() == 'HttpMethod.put') {
       var result = await http.put(requestUri,
-          body: requestBody, headers: headers ?? requestHeader);
+          body: requestBody,
+        //  headers: headers ?? requestHeader
+      );
       print('requestUriPut $requestUri');
       print('requestBodyPut $requestBody');
       print('resultPut statusCode ${result.statusCode}');
@@ -96,10 +100,10 @@ getDate({
         return result.statusCode;
       }
     }
-  } else {
-    /*dialog(
-        title: 'NO INTERNET',
-        body: 'Check your Internet Connection and try again');*/
-    noInternet = true;
-  }
+    } else {
+      /*dialog(
+          title: 'NO INTERNET',
+          body: 'Check your Internet Connection and try again');*/
+      noInternet = true;
+    }
 }

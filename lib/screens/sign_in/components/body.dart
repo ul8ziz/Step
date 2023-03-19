@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../components/GetStorage.dart';
 import '../../../components/constants.dart';
 import '../../../components/custom_surfix_icon.dart';
 import '../../../components/default_button.dart';
 import '../../../components/form_error.dart';
+import '../../../components/loginController.dart';
 import '../../../components/size_config.dart';
 import '../../home/home_screen.dart';
 
@@ -12,6 +14,9 @@ class Body extends StatefulWidget {
   _BodyState createState() => _BodyState();
 }
 class _BodyState extends  State<Body> {
+  final LoginController controller = Get.put(LoginController());
+  TextEditingController usercontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
   String? email;
@@ -41,90 +46,83 @@ class _BodyState extends  State<Body> {
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.05),
-                Text(
-                  "مرحباً",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  """بك عزيزي  ولئ امر الطالب إدارة  
-المدرسة تتشرف في انضمامكم                        """,
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-                Form(
-              key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 children: [
-                  buildEmailFormField(),
-                  SizedBox(height: getProportionateScreenHeight(30)),
-                  buildPasswordFormField(),
-                  SizedBox(height: getProportionateScreenHeight(30)),
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: remember,
-                        activeColor: kPrimaryColor,
-                        onChanged: (value) {
-                          setState(() {
-                            remember = value;
-                          });
-                        },
-                      ),
-                      Text("تذكر تسجيل الدخول."),
-                      Spacer(),
-                      /*  GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, ForgotPasswordScreen.routeName),
-                child: Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )*/
-                    ],
+                  SizedBox(height: SizeConfig.screenHeight * 0.09),
+                  Text(
+                    "مرحباً",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: getProportionateScreenWidth(28),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  FormError(errors: errors),
-                  SizedBox(height: getProportionateScreenHeight(20)),
-                  DefaultButton(
-                    text: "تسجيل الدخول",
-                    press: () {
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save(); // if all are valid then go to success screen
-                        KeyboardUtil.hideKeyboard(context);
-                        Get.offAll( HomeScreen());
-                      }
-                    },
+                  Text(
+                    """بك عزيزي  ولئ امر الطالب إدارة  
+المدرسة تتشرف في انضمامكم                        """,
+                    textAlign: TextAlign.center,
                   ),
-                ],
-              ),
-            ),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-              /*  Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  SizedBox(height: SizeConfig.screenHeight * 0.08),
+                  Form(
+                key: _formKey,
+                child: Column(
                   children: [
-                    SocalCard(
-                      icon: "assets/icons/google-icon.svg",
-                      press: () {},
+                    buildEmailFormField(),
+                    SizedBox(height: getProportionateScreenHeight(30)),
+                    buildPasswordFormField(),
+                    SizedBox(height: getProportionateScreenHeight(30)),
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: remember,
+                          activeColor: kPrimaryColor,
+                          onChanged: (value) {
+                            setState(() {
+                              remember = value;
+                            });
+                          },
+                        ),
+                        Text("تذكر تسجيل الدخول."),
+                        Spacer(),
+                        /*  GestureDetector(
+                  onTap: () => Navigator.pushNamed(
+                      context, ForgotPasswordScreen.routeName),
+                  child: Text(
+                    "Forgot Password",
+                    style: TextStyle(decoration: TextDecoration.underline),
+                  ),
+                )*/
+                      ],
                     ),
-                    SocalCard(
-                      icon: "assets/icons/facebook-2.svg",
-                      press: () {},
-                    ),
-                    SocalCard(
-                      icon: "assets/icons/twitter.svg",
-                      press: () {},
-                    ),
+                    FormError(errors: errors),
+                    SizedBox(height: getProportionateScreenHeight(20)),
+                    Obx(() =>
+                    !controller.loading.value?
+                      DefaultButton(
+                      text: "تسجيل الدخول",
+                      press: () async{
+                         if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save(); // if all are valid then go to success screen
+                          KeyboardUtil.hideKeyboard(context);
+                      await  controller.login(
+                              UserName: usercontroller.text.trim(),
+                              password: passwordcontroller.text.trim());
+                        }
+                      },
+                    ):widgetButtonProgress(
+                    context,
+                    width: MediaQuery.of(context).size.width,
+                    )
+
+                  ),
                   ],
                 ),
-                SizedBox(height: getProportionateScreenHeight(20)),
-                NoAccountText(),*/
-              ],
+              ),
+                  SizedBox(height: SizeConfig.screenHeight * 0.08),
+                ],
+              ),
             ),
           ),
         ),
@@ -133,12 +131,13 @@ class _BodyState extends  State<Body> {
   }
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: passwordcontroller,
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPassNullError);
-        } else if (value.length >= 6) {
+        } else if (value.length >= 1) {
           removeError(error: kShortPassError);
         }
         return null;
@@ -147,7 +146,7 @@ class _BodyState extends  State<Body> {
         if (value!.isEmpty) {
           addError(error: kPassNullError);
           return "";
-        } else if (value.length < 6) {
+        } else if (value.length < 1) {
           addError(error: kShortPassError);
           return "";
         }
@@ -166,6 +165,7 @@ class _BodyState extends  State<Body> {
   }
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: usercontroller,
       keyboardType: TextInputType.number,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
@@ -194,7 +194,31 @@ class _BodyState extends  State<Body> {
       ),
     );
   }
+Widget widgetButtonProgress(context, {colorButton, prograsColor,width, height}) {
+  return Container(
+    alignment: Alignment.center,
+    decoration: BoxDecoration(
+      color: colorButton ?? kPrimaryColor,
+      borderRadius: BorderRadius.circular(10),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5), //color of shadow
+          spreadRadius: 0, //spread radius
+          blurRadius: 6, // blur radius
+          offset: const Offset(0, 3), // changes position of shadow
+        ),
+      ],
+    ),
+    width: width ?? MediaQuery.of(context).size.width,
+    height: height ?? MediaQuery.of(context).size.height * .055,
+    child:  CircularProgressIndicator(
+      color:prograsColor?? Colors.white,
+    ),
+  );
 }
+}
+
+
 class KeyboardUtil {
   static void hideKeyboard(BuildContext context) {
     FocusScopeNode currentFocus = FocusScope.of(context);

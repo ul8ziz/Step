@@ -166,7 +166,6 @@ class ProfileScreen extends StatelessWidget {
                                   onTap: () {
                                     controller.changeLanguageEnglish();
                                     Get.offAll(BottomNavBar(i: 2,));
-
                                   }),
                             ],
                             onChanged: (value) {},
@@ -344,13 +343,12 @@ class ProfileScreen extends StatelessWidget {
                                         InkWell(
                                             onTap: () {
                                               clearGetStorage(isShowOnBoardingPage);
+                                              clearGetStorage(isShowLoginPage);
                                               Get.offAll(SignInScreen());
                                             },
                                             child:
                                             Container(
-                                              alignment:
-                                              Alignment
-                                                  .center,
+                                              alignment: Alignment.center,
                                               decoration: BoxDecoration(
                                                   color:kPrimaryColor,
                                                   borderRadius:

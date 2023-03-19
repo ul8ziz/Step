@@ -7,32 +7,36 @@ import '../global/queryModel.dart';
 import '../components/GetStorage.dart';
 import '../components/constants.dart';
 import '../models/NotificationModel.dart';
+import '../models/UserInfoModel.dart';
 
-class NotificationController extends GetxController {
+class UserInfoController extends GetxController {
 
-  List<NotificationModel> notificationlist = <NotificationModel>[].obs;
+  List<UserInfoModel> UserInfoControllerlist = <UserInfoModel>[].obs;
 
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    getNotifications();
+    getUserInfo();
   }
   RxBool loading = false.obs;
   var error = false.obs;
-  var notificationFun = "notif_model/notifications.php";
+  var UserInfoFun = "auth_api/login.php";
 
-  getNotifications() async {
+  getUserInfo() async {
           loading.value = true;
           try {
-            dynamic data = await getDate(url: notificationFun, method: HttpMethod.post,
-                body: {}
+            dynamic data = await getDate(url: UserInfoFun, method: HttpMethod.post,
+                body: {
+                    "phone" : "777172034",
+                    "password":"123"
+                }
             );
             if (data.isNotEmpty) {
-              notificationlist = NotificationModel.fromJsonList(data);
+              UserInfoControllerlist = UserInfoModel.fromJsonList(data['data']);
               loading.value = false;
-
+             print('-------------${ data['data'][0]['name_std']}');
             } else {
               print('no date isEmpty');
               loading.value = false;

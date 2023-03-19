@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../BottomNavBar.dart';
+import '../../Controllers/UserInfoController.dart';
 import '../../Global/transaltion.dart';
 import '../../components/GetStorage.dart';
 import '../../components/constants.dart';
@@ -15,6 +16,7 @@ import '../team/Team_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   languageController controller = Get.put(languageController());
+  final UserInfoController userInfoController = Get.put(UserInfoController());
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,8 @@ class ProfileScreen extends StatelessWidget {
                                 color: Colors.grey.withOpacity(0.5),
                                 spreadRadius: -2,
                                 blurRadius: 9,
-                                offset: const Offset(0, 2)),
+                                offset: const Offset(0, 2)
+                            ),
                           ],
                         ),
                         child:Center(child: Text('الاعدادات',
@@ -114,6 +117,13 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 20),
+                /*Obx(()=>
+                !userInfoController.loading.value?
+                Center(
+                    child: Text('${userInfoController.UserInfoControllerlist[0].data?.nameStd.toString()}'))
+                    :SizedBox()
+                ),*/
                 SizedBox(height: 20),
                 ProfileMenu(
                   text: "حسابي",

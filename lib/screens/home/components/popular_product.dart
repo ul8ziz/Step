@@ -1,6 +1,7 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:Step/components/product_card.dart';
-import 'package:Step/models/Product.dart';
+import 'package:Step/models/NotificationModel.dart';
 
 import '../../../components/size_config.dart';
 import 'section_title.dart';
@@ -38,3 +39,4 @@ class PopularProducts extends StatelessWidget {
     );
   }
 }
+*/

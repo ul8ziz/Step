@@ -1,3 +1,5 @@
+import 'dart:io';
+
 const baseUrl = "https://ul8ziz.online/school/masterApi/api/";
 
 var loginFun = "auth_api/login.php";
@@ -6,9 +8,11 @@ var add = "add";
 var func = "func";
 var updateRequest = "update";
 var AllrequestHeader = {
+  'Access-Control-Allow-Origin':'*',
+  'accept':'application/json',
   'Content-Type': 'application/json',
-  'user-authentication': 'Admins_app',
-  'password-authentication': 'Aa123456'
+  HttpHeaders.contentTypeHeader: 'application/json',
+  HttpHeaders.acceptCharsetHeader:'utf-8',
 };
 
 

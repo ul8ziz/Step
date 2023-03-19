@@ -30,7 +30,7 @@ getDate({
       print('requestBody $requestBody');
       print('result ${result.body}');
       if (result.statusCode == 200) {
-        var data = jsonDecode(result.body);
+        var data = (json.decode(utf8.decode(result.bodyBytes)));
         return await data;
       } else if (result.statusCode == 401) {
         var data = jsonDecode(result.body);
@@ -38,10 +38,8 @@ getDate({
           return result.statusCode;
         } else if (errorLogin) {
           print(data['enDescription']);
-          //dialog(title: "Error", body: data['enDescription'], isFindLoading: true);
         } else {
           print(data['enDescription']);
-          //dialog(title: "Error", body: data['EnDescription']);
         }
       } else if (result.statusCode == 400) {
         var data = jsonDecode(result.body);
@@ -49,12 +47,9 @@ getDate({
           return await data;
         } else if (errorLogin) {
           return await data;
-
-          // dialog(title: "Error", body: data['enDescription'], isFindLoading: true);
         } else {
           print(data['enDescription']);
           return await data;
-          //dialog(title: "Error", body: data['EnDescription']);
         }
       } else if (result.statusCode == 201) {
         return result.statusCode;
@@ -63,7 +58,7 @@ getDate({
     if (method.toString() == 'HttpMethod.put') {
       var result = await http.put(requestUri,
           body: requestBody,
-        //  headers: headers ?? requestHeader
+          headers: headers ?? requestHeader
       );
       print('requestUriPut $requestUri');
       print('requestBodyPut $requestBody');
@@ -89,7 +84,6 @@ getDate({
           return await data;
         } else if (errorLogin) {
           return await data;
-
           // dialog(title: "Error", body: data['enDescription'], isFindLoading: true);
         } else {
           print(data['enDescription']);

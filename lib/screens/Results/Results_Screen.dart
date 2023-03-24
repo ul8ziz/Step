@@ -1,188 +1,204 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
+import '../Details/Details_Screen.dart';
+import 'Results_Details_Screen.dart';
 import 'components/home_header.dart';
 
 class Results_Screen extends StatelessWidget {
-  static String routeName = "/home";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          width: MediaQuery.of(context).size.width,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              HomeHeader(),
-              Column(
+            width: MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  SizedBox(height: 30,),
-                  Itams1(),
-                  SizedBox(height: 30,),
-                  Itams2(),
-                  SizedBox(height: 30,),
-                  Itams3(),
+                  HomeHeader(),
+                  Column(
+                    children: [
+                      SizedBox(height: 30,),
+                      Itams1(press: () {
+                        Get.to(Results_Details_Screen());
+                      }),
+                      SizedBox(height: 30,),
+                      Itams2(press: () {
+                        Get.to(Results_Details_Screen());
+                      }),                  SizedBox(height: 30,),
+                      Itams3(press: () {
+                        Get.to(Results_Details_Screen());
+                      }),                ],
+                  )
                 ],
-              )
-            ],
-          ),
-        )),
+              ),
+            )),
       ),
     );
   }
-  Widget Itams2(){
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('نتائج المرحلة الاعدادية',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18,
-                )),
-            SizedBox(width: 10,),
-
-          ],
-        ),
-        SizedBox(height: 10,),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
+  Widget Itams2({press}){
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف السابع",
-                numOfBrands: '',
-                press: () {},
+              Text('نتائج المرحلة الاعدادية',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18,
+                  )
               ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثامن",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف التاسع",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SizedBox(width: getProportionateScreenWidth(20)),
+              SizedBox(width: 10,),
+
             ],
           ),
-        ),
-      ],
+          SizedBox(height: 10,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف السابع",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثامن",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف التاسع",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SizedBox(width: getProportionateScreenWidth(20)),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
-  Widget Itams3(){
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('نتائج المرحلة الاساسية',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18,
-                )),
-            SizedBox(width: 10,),
-          ],
-        ),
-        SizedBox(height: 10,),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
+  Widget Itams3({press}){
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الاول",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثاني",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثالث",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الرابع",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الخامس",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف السادس",
-                numOfBrands: '',
-                press: () {},
-              ),
+              Text(' نتائج المرحلة الاساسية',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18,
+                  )),
+              SizedBox(width: 10,),
+            ],
+          ),
+          SizedBox(height: 10,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الاول",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثاني",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثالث",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الرابع",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الخامس",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف السادس",
+                  numOfBrands: '',
+                  press: press,
+                ),
 
-              SizedBox(width: getProportionateScreenWidth(20)),
-            ],
+                SizedBox(width: getProportionateScreenWidth(20)),
+              ],
+            ),
           ),
-        ),
-      ],
-    );
-  }
-  Widget Itams1(){
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('نتائج المرحلة الثانوية',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18,
-                )),
-            SizedBox(width: 10,),
-          ],
-        ),
-        SizedBox(height: 10,),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
+        ],
+      ),
+    );}
+  Widget Itams1({press}){
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الاول ثانوي",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثاني ثانوي",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثالث ثانوي",
-                numOfBrands: '',
-                press: () {},
-              ),
+              Text(' نتائج المرحلة الثانوية',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18,
+                  )),
+              SizedBox(width: 10,),
             ],
           ),
-        ),
-      ],
+          SizedBox(height: 10,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الاول ثانوي",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثاني ثانوي",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثالث ثانوي",
+                  numOfBrands: '',
+                  press: press,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

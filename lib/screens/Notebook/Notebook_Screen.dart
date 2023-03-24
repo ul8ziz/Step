@@ -20,12 +20,16 @@ class Notebook_Screen extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 30,),
-                  Itams1(),
+                  Itams1(press: () {
+                    Get.to(Details_Screen());
+                  }),
                   SizedBox(height: 30,),
-                  Itams2(),
-                  SizedBox(height: 30,),
-                  Itams3(),
-                ],
+                  Itams2(press: () {
+                    Get.to(Details_Screen());
+                  }),                  SizedBox(height: 30,),
+                  Itams3(press: () {
+                    Get.to(Details_Screen());
+                  }),                ],
               )
             ],
           ),
@@ -33,165 +37,167 @@ class Notebook_Screen extends StatelessWidget {
       ),
     );
   }
-  Widget Itams2(){
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('دفتر متابعة المرحلة الاعدادية',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18,
-                )
+  Widget Itams2({press}){
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('دفتر متابعة المرحلة الاعدادية',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18,
+                  )
+              ),
+              SizedBox(width: 10,),
+
+            ],
+          ),
+          SizedBox(height: 10,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف السابع",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثامن",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف التاسع",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SizedBox(width: getProportionateScreenWidth(20)),
+              ],
             ),
-            SizedBox(width: 10,),
-
-          ],
-        ),
-        SizedBox(height: 10,),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف السابع",
-                numOfBrands: '',
-                press: () {
-                  Get.to(Details_Screen());
-                },
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثامن",
-                numOfBrands: '',
-                press: () {
-
-                },
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف التاسع",
-                numOfBrands: '',
-                press: () {
-
-                },
-              ),
-              SizedBox(width: getProportionateScreenWidth(20)),
-            ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
-  Widget Itams3(){
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('دفتر متابعة المرحلة الاساسية',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18,
-                )),
-            SizedBox(width: 10,),
-          ],
-        ),
-        SizedBox(height: 10,),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
+  Widget Itams3({press}){
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الاول",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثاني",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثالث",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الرابع",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الخامس",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف السادس",
-                numOfBrands: '',
-                press: () {},
-              ),
+              Text('دفتر متابعة المرحلة الاساسية',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18,
+                  )),
+              SizedBox(width: 10,),
+            ],
+          ),
+          SizedBox(height: 10,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الاول",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثاني",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثالث",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الرابع",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الخامس",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف السادس",
+                  numOfBrands: '',
+                  press: press,
+                ),
 
-              SizedBox(width: getProportionateScreenWidth(20)),
-            ],
+                SizedBox(width: getProportionateScreenWidth(20)),
+              ],
+            ),
           ),
-        ),
-      ],
-    );
-  }
-  Widget Itams1(){
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('دفتر متابعة المرحلة الثانوية',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 18,
-                )),
-            SizedBox(width: 10,),
-          ],
-        ),
-        SizedBox(height: 10,),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
+        ],
+      ),
+    );}
+  Widget Itams1({press}){
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الاول ثانوي",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثاني ثانوي",
-                numOfBrands: '',
-                press: () {},
-              ),
-              SpecialOfferCard(
-                image: "assets/images/logo.png",
-                category: "الصف الثالث ثانوي",
-                numOfBrands: '',
-                press: () {},
-              ),
+              Text('دفتر متابعة المرحلة الثانوية',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 18,
+                  )),
+              SizedBox(width: 10,),
             ],
           ),
-        ),
-      ],
+          SizedBox(height: 10,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الاول ثانوي",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثاني ثانوي",
+                  numOfBrands: '',
+                  press: press,
+                ),
+                SpecialOfferCard(
+                  image: "assets/images/logo.png",
+                  category: "الصف الثالث ثانوي",
+                  numOfBrands: '',
+                  press: press,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

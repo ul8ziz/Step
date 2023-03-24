@@ -53,12 +53,14 @@ class HomeScreen extends StatelessWidget {
                             goTo: (){ Get.to(Results_Screen());},
                             svgFile: "assets/icons/pngegg.svg"
                         ),
-                        items(title: 'ملاحظات',
-                            goTo: (){
-                         // Get.to(Results_Screen());
-                          },
-                            svgFile: "assets/icons/notes.svg"
-                        ),
+                         items(title: 'ملاحظات',
+                               goTo: (){
+                                 // Get.to(Results_Screen());
+                               },
+                               svgFile: "assets/icons/notes.svg"
+                           ),
+
+
                       ],
                     )),
               ),
@@ -153,7 +155,8 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget items( {title,goTo,svgFile}){
-    return  InkWell(
+    return
+      InkWell(
       onTap: goTo,
       child: Container(
         decoration: BoxDecoration(

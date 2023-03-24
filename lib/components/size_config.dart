@@ -32,7 +32,7 @@ Widget widgetButtonProgress(context, {colorButton, prograsColor,width, height}) 
       ],
     ),
     width: width ?? MediaQuery.of(context).size.width,
-    height: height ?? MediaQuery.of(context).size.height * .055,
+    height: 50,
     child:  CircularProgressIndicator(
       color:prograsColor?? Colors.white,
     ),

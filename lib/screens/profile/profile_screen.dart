@@ -105,7 +105,6 @@ class ProfileScreen extends StatelessWidget {
                           fontSize: 15
                       ),
                     ),
-
                     ),
                     Center(child:
                     Text('${userInfoController.UserInfoControllerlist.data?.fatherPhone.toString()}'

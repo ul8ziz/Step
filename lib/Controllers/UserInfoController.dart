@@ -31,8 +31,8 @@ class UserInfoController extends GetxController {
                 url: UserInfoFun,
                 method: HttpMethod.post,
                 body: {
-                    "phone" : "777172034",
-                    "password":"123"
+                    "phone" : "772171727",
+                    "password":"123456"
                 }
             );
            if (data.isNotEmpty) {

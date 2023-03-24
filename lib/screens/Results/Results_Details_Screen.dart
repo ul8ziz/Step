@@ -4,10 +4,10 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:photo_view/photo_view.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
-import 'Details_Viwe.dart';
+import '../Details/Details_Viwe.dart';
 import 'components/home_header.dart';
 
-class Details_Screen extends StatelessWidget {
+class Results_Details_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +61,7 @@ class Details_Screen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text('الواجب',
+              Text('نتائج',
               style: TextStyle(
                 color: kPrimaryColor,
               ),),
@@ -75,7 +75,7 @@ class Details_Screen extends StatelessWidget {
           Expanded(
             child: GestureDetector(
               onTap: (){
-                Get.to(Details_Viwe('assets/images/Hw.jpg'));
+                Get.to(Details_Viwe('assets/images/Results.jpg'));
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -83,14 +83,14 @@ class Details_Screen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                   border: Border.all(color: Colors.black,width: 1),
                   image:DecorationImage(
-                      image: AssetImage("assets/images/Hw.jpg"),
+                      image: AssetImage("assets/images/Results.jpg"),
                       fit: BoxFit.cover),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 0,
                       blurRadius: 2,
-                      offset: const Offset(0, 1),
+                      offset: const Offset(5, 5),
                     ),
                   ],
                 ),

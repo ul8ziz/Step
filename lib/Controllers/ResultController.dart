@@ -7,33 +7,39 @@ import '../global/queryModel.dart';
 import '../components/GetStorage.dart';
 import '../components/constants.dart';
 import '../models/NotificationModel.dart';
+import '../models/ResultModel.dart';
+import '../models/UserInfoModel.dart';
 
-class NotificationController extends GetxController {
+class ResultController extends GetxController {
 
-  List<NotificationModel> notificationlist = <NotificationModel>[].obs;
+  List<ResultModel> ResultControllerlist = <ResultModel>[].obs;
 
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    getNotifications();
+    getResul();
   }
   RxBool loading = false.obs;
   var error = false.obs;
-  var notificationFun = "notif_model/notifications.php";
+  var degreeFun = "degree_api/result.php";
 
-  getNotifications() async {
+  getResul() async {
           loading.value = true;
           try {
-            dynamic data = await getDate(
-                url: notificationFun,
+            var data = await getDate(
+                url: degreeFun,
                 method: HttpMethod.post,
-                body: {}
-            );
+                body: {
+              "class":"2",
+              "level":"4"
+                }
+                );
             if (data.isNotEmpty) {
-              notificationlist = NotificationModel.fromJsonList(data);
+              ResultControllerlist = ResultModel.fromJsonList(data);
               loading.value = false;
+           //  print('-------------${ data['data'][0]['name_std']}');
             } else {
               print('no date isEmpty');
               loading.value = false;

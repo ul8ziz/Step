@@ -11,7 +11,7 @@ import '../models/UserInfoModel.dart';
 
 class UserInfoController extends GetxController {
 
-  List<UserInfoModel> UserInfoControllerlist = <UserInfoModel>[].obs;
+  late UserInfoModel UserInfoControllerlist;
 
 
   @override
@@ -27,16 +27,18 @@ class UserInfoController extends GetxController {
   getUserInfo() async {
           loading.value = true;
           try {
-            dynamic data = await getDate(url: UserInfoFun, method: HttpMethod.post,
+            var data = await getDate(
+                url: UserInfoFun,
+                method: HttpMethod.post,
                 body: {
                     "phone" : "777172034",
                     "password":"123"
                 }
             );
-            if (data.isNotEmpty) {
-              UserInfoControllerlist = UserInfoModel.fromJsonList(data['data']);
+           if (data.isNotEmpty) {
+              UserInfoControllerlist = UserInfoModel.fromJson(data) ;
               loading.value = false;
-             print('-------------${ data['data'][0]['name_std']}');
+           //  print('-------------${ data['data'][0]['name_std']}');
             } else {
               print('no date isEmpty');
               loading.value = false;

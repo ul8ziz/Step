@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
+import '../Details/Details_Screen.dart';
 import 'components/home_header.dart';
 
 class Notebook_Screen extends StatelessWidget {
-  static String routeName = "/home";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +44,8 @@ class Notebook_Screen extends StatelessWidget {
                   color: kPrimaryColor,
                   fontWeight: FontWeight.normal,
                   fontSize: 18,
-                )),
+                )
+            ),
             SizedBox(width: 10,),
 
           ],
@@ -56,19 +59,25 @@ class Notebook_Screen extends StatelessWidget {
                 image: "assets/images/logo.png",
                 category: "الصف السابع",
                 numOfBrands: '',
-                press: () {},
+                press: () {
+                  Get.to(Details_Screen());
+                },
               ),
               SpecialOfferCard(
                 image: "assets/images/logo.png",
                 category: "الصف الثامن",
                 numOfBrands: '',
-                press: () {},
+                press: () {
+
+                },
               ),
               SpecialOfferCard(
                 image: "assets/images/logo.png",
                 category: "الصف التاسع",
                 numOfBrands: '',
-                press: () {},
+                press: () {
+
+                },
               ),
               SizedBox(width: getProportionateScreenWidth(20)),
             ],

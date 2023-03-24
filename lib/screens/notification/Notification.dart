@@ -23,6 +23,8 @@ class Latters extends StatelessWidget {
                   children: [
                     HomeHeader(),
                     SizedBox(height: 10,),
+                Obx(() =>
+                !notificationController.loading.value?
                     Container(
                   width:double.infinity,
                   height: getProportionateScreenHeight(640),
@@ -31,8 +33,6 @@ class Latters extends StatelessWidget {
                       itemCount: notificationController.notificationlist.length,
                       itemBuilder: (context, index) {
                      return
-                       Obx(() =>
-                       !notificationController.loading.value?
                            Container(
                              width: getProportionateScreenWidth(345),
                              height: getProportionateScreenHeight(100),
@@ -105,19 +105,18 @@ class Latters extends StatelessWidget {
                                      ),
                                    ],
                                  )),
-                           ):
-                           Container(
-                             margin: EdgeInsets.symmetric(vertical: 300),
-                             child: Center(
-                               child: CircularProgressIndicator(
-                                 color: kPrimaryColor,
-                               ),
-                             ),
-                           )
-                       );
+                           );
                     }
           ),
                 )
+                    :Container(
+                  margin: EdgeInsets.symmetric(vertical: 300),
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                ))
                   ],
                 ),
               )),

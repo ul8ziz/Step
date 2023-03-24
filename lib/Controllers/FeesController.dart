@@ -6,33 +6,38 @@ import '../Global/enumMethod.dart';
 import '../global/queryModel.dart';
 import '../components/GetStorage.dart';
 import '../components/constants.dart';
+import '../models/FeesModel.dart';
 import '../models/NotificationModel.dart';
+import '../models/ResultModel.dart';
+import '../models/UserInfoModel.dart';
 
-class NotificationController extends GetxController {
+class FeesController extends GetxController {
 
-  List<NotificationModel> notificationlist = <NotificationModel>[].obs;
+  List<FeesModel> Feeslist = <FeesModel>[].obs;
 
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    getNotifications();
+    getFees();
   }
   RxBool loading = false.obs;
   var error = false.obs;
-  var notificationFun = "notif_model/notifications.php";
+  var degreeFun = "fees_api/fees.php";
 
-  getNotifications() async {
+  getFees() async {
           loading.value = true;
           try {
-            dynamic data = await getDate(
-                url: notificationFun,
+            var data = await getDate(
+                url: degreeFun,
                 method: HttpMethod.post,
-                body: {}
-            );
+                body: {
+                  "student":2
+                }
+                );
             if (data.isNotEmpty) {
-              notificationlist = NotificationModel.fromJsonList(data);
+              Feeslist = FeesModel.fromJsonList(data);
               loading.value = false;
             } else {
               print('no date isEmpty');

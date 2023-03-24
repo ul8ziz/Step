@@ -16,7 +16,8 @@ class NotificationModel {
 
   factory NotificationModel.fromJson(Map<String, dynamic> json) => NotificationModel(
       message: json["message"],
-      date_time: json["date_time"]);
+      date_time: json["date_time"]
+  );
 
   Map<String, dynamic> toJson() => {
     "message": message,

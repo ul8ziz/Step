@@ -194,28 +194,6 @@ class _BodyState extends  State<Body> {
       ),
     );
   }
-Widget widgetButtonProgress(context, {colorButton, prograsColor,width, height}) {
-  return Container(
-    alignment: Alignment.center,
-    decoration: BoxDecoration(
-      color: colorButton ?? kPrimaryColor,
-      borderRadius: BorderRadius.circular(10),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.5), //color of shadow
-          spreadRadius: 0, //spread radius
-          blurRadius: 6, // blur radius
-          offset: const Offset(0, 3), // changes position of shadow
-        ),
-      ],
-    ),
-    width: width ?? MediaQuery.of(context).size.width,
-    height: height ?? MediaQuery.of(context).size.height * .055,
-    child:  CircularProgressIndicator(
-      color:prograsColor?? Colors.white,
-    ),
-  );
-}
 }
 
 

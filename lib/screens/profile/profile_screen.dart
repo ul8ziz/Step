@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-
 import '../../BottomNavBar.dart';
 import '../../Controllers/UserInfoController.dart';
 import '../../Global/transaltion.dart';
 import '../../components/GetStorage.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
-import '../../main.dart';
 import '../Privacy_policy/Privacy_Policy_ٍScreen.dart';
 import '../sign_in/sign_in_screen.dart';
 import '../team/Team_screen.dart';
@@ -17,7 +15,6 @@ import '../team/Team_screen.dart';
 class ProfileScreen extends StatelessWidget {
   languageController controller = Get.put(languageController());
   final UserInfoController userInfoController = Get.put(UserInfoController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,29 +46,8 @@ class ProfileScreen extends StatelessWidget {
                             color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
-                          ),)),
-                        /* TextField(
-          onChanged: (value) => print(value),
-          decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(20),
-                  vertical: getProportionateScreenWidth(9)),
-              border: InputBorder.none,
-              focusedBorder: InputBorder.none,
-              enabledBorder: InputBorder.none,
-              hintText: "Search product",
-              prefixIcon: Icon(Icons.search)),
-        ),
-    ),
-           IconBtnWithCounter(
-            svgSrc: "assets/icons/Cart Icon.svg",
-            press: () => Navigator.pushNamed(context, CartScreen.routeName),
-          ),
-          IconBtnWithCounter(
-            svgSrc: "assets/icons/Bell.svg",
-            numOfitem: 3,
-            press: () {},
-          ),*/
+                          ),)
+                        ),
                       ),]
                 ),
                 SizedBox(height: 20,),
@@ -112,19 +88,40 @@ class ProfileScreen extends StatelessWidget {
                               child: SvgPicture.asset("assets/icons/Camera Icon.svg"),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
-                /*Obx(()=>
+                SizedBox(height: 10),
+                Obx(()=>
                 !userInfoController.loading.value?
-                Center(
-                    child: Text('${userInfoController.UserInfoControllerlist[0].data?.nameStd.toString()}'))
-                    :SizedBox()
-                ),*/
-                SizedBox(height: 20),
+                Column(
+                  children: [
+                    Center(child:
+                    Text('${userInfoController.UserInfoControllerlist.data?.nameStd.toString()}'
+                      ,style: TextStyle(
+                          color: kPrimaryColor,
+                          fontSize: 15
+                      ),
+                    ),
+
+                    ),
+                    Center(child:
+                    Text('${userInfoController.UserInfoControllerlist.data?.fatherPhone.toString()}'
+                      ,style: TextStyle(
+                          color: kPrimaryColor,
+                          fontSize: 15
+                      ),
+                    ),
+
+                    )
+                  ],)
+                    :widgetButtonProgress(
+                  context,
+                  width: MediaQuery.of(context).size.width,
+                ),),
+                    SizedBox(height: 10),
                 ProfileMenu(
                   text: "حسابي",
                   //text: "My Account",

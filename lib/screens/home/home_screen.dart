@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../Controllers/NotificationController.dart';
+import '../../Controllers/ResultController.dart';
+import '../../Controllers/UserInfoController.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
 import '../Fees/Fees_Screen.dart';
@@ -12,6 +14,7 @@ import 'components/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
   final NotificationController notificationController = Get.put(NotificationController());
+  final UserInfoController userInfoController = Get.put(UserInfoController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,6 @@ class HomeScreen extends StatelessWidget {
               HomeHeader(),
               SizedBox(height: 50,),
               OfferWidget(context),
-
               SizedBox(height: 50,),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .06),
@@ -52,7 +54,9 @@ class HomeScreen extends StatelessWidget {
                             svgFile: "assets/icons/pngegg.svg"
                         ),
                         items(title: 'ملاحظات',
-                            goTo: (){ Get.to(Results_Screen());},
+                            goTo: (){
+                         // Get.to(Results_Screen());
+                          },
                             svgFile: "assets/icons/notes.svg"
                         ),
                       ],

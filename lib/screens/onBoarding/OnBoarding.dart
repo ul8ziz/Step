@@ -8,12 +8,12 @@ import '../../../components/default_button.dart';
 import '../../components/GetStorage.dart';
 
 
-class SplashScreen extends StatefulWidget {
+class OnBoarding extends StatefulWidget {
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _OnBoardingState createState() => _OnBoardingState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _OnBoardingState extends State<OnBoarding> {
 
     int currentPage = 0;
     List<Map<String, String>> splashData = [
@@ -44,62 +44,58 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Directionality(
-        textDirection:TextDirection.rtl,
-        child: SafeArea(
-        child: Material(
+    return SafeArea(
+    child: Material(
       child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              flex: 6,
-              child: PageView.builder(
-                onPageChanged: (value) {
-                  setState(() {
-                    currentPage = value;
-                  });
-                },
-                itemCount: splashData.length,
-                itemBuilder: (context, index) => SplashContent(
-                  image: splashData[index]["image"],
-                  text: splashData[index]['text'],
-                  title: splashData[index]['title'],
-                ),
-              ),
+    width: double.infinity,
+    child: Column(
+      children: <Widget>[
+        Expanded(
+          flex: 6,
+          child: PageView.builder(
+            onPageChanged: (value) {
+              setState(() {
+                currentPage = value;
+              });
+            },
+            itemCount: splashData.length,
+            itemBuilder: (context, index) => SplashContent(
+              image: splashData[index]["image"],
+              text: splashData[index]['text'],
+              title: splashData[index]['title'],
             ),
-            Expanded(
-              flex: 3,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(20)),
-                child: Column(
-                  children: <Widget>[
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        splashData.length,
-                            (index) => buildDot(index: index),
-                      ),
-                    ),
-                    Spacer(flex: 3),
-                    DefaultButton(
-                      text: "تخطي",
-                      press: () {
-                        writeGetStorage(isShowOnBoardingPage,true);
-                        Get.offAll( SignInScreen());
-                      },
-                    ),
-                    Spacer(),
-                  ],
-                ),
-              ),
-            ),
-          ],
+          ),
         ),
+        Expanded(
+          flex: 3,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+            child: Column(
+              children: <Widget>[
+                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    splashData.length,
+                        (index) => buildDot(index: index),
+                  ),
+                ),
+                Spacer(),
+                DefaultButton(
+                  text: "تخطي",
+                  press: () {
+                    writeGetStorage(isShowOnBoardingPage,true);
+                    Get.offAll( SignInScreen());
+                  },
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
       ))
-        ),
     );
 
   }

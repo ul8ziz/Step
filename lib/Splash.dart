@@ -1,9 +1,8 @@
 import 'package:Step/screens/home/home_screen.dart';
+import 'package:Step/screens/onBoarding/OnBoarding.dart';
 import 'package:Step/screens/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:Step/screens/splash/splash_screen.dart';
-
 import 'BottomNavBar.dart';
 import 'components/GetStorage.dart';
 import 'components/size_config.dart';
@@ -31,7 +30,7 @@ class _SplashState extends State<Splash> {
         Get.offAll(SignInScreen());
         }
       }else {
-        Get.offAll( SplashScreen());
+        Get.offAll( OnBoarding());
       }
     });
     return SafeArea(

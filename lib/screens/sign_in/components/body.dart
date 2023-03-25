@@ -43,8 +43,7 @@ class _BodyState extends  State<Body> {
       child: SizedBox(
         width: double.infinity,
         child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -61,7 +60,7 @@ class _BodyState extends  State<Body> {
                   ),
                   Text(
                     """بك عزيزي  ولئ امر الطالب إدارة  
-المدرسة تتشرف في انضمامكم                        """,
+المدرسة تتشرف في انضمامكم لنا                       """,
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: SizeConfig.screenHeight * 0.08),
@@ -129,68 +128,73 @@ class _BodyState extends  State<Body> {
       ),
     );
   }
-  TextFormField buildPasswordFormField() {
-    return TextFormField(
-      controller: passwordcontroller,
-      obscureText: true,
-      onSaved: (newValue) => password = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kPassNullError);
-        } else if (value.length >= 1) {
-          removeError(error: kShortPassError);
-        }
-        return null;
-      },
-      validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        } else if (value.length < 1) {
-          addError(error: kShortPassError);
-          return "";
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-        labelText: "كلمة السر",
-        hintText: "ادخل كلمة السر",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: Padding(
-          padding: EdgeInsets.only(left: 14),
-          child: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+  Container buildPasswordFormField() {
+    return Container(
+      child: TextFormField(
+        controller: passwordcontroller,
+        obscureText: true,
+        onSaved: (newValue) => password = newValue,
+        onChanged: (value) {
+          if (value.isNotEmpty) {
+            removeError(error: kPassNullError);
+          } else if (value.length >= 1) {
+            removeError(error: kShortPassError);
+          }
+          return null;
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            addError(error: kPassNullError);
+            return "";
+          } else if (value.length < 1) {
+            addError(error: kShortPassError);
+            return "";
+          }
+          return null;
+        },
+        decoration: InputDecoration(
+          labelText: "كلمة السر",
+          hintText: "ادخل كلمة السر",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon:Icon(Icons.lock_open),
+          /*Padding(
+            padding: EdgeInsets.only(left: 14),
+            child: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+          ),*/
         ),
       ),
     );
   }
-  TextFormField buildEmailFormField() {
-    return TextFormField(
-      controller: usercontroller,
-      keyboardType: TextInputType.number,
-      onSaved: (newValue) => email = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kEmailNullError);
-        } else if (emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: kInvalidEmailError);
-        }
-        return null;
-      },
-      validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kEmailNullError);
-          return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
-          return "";
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-        labelText: "رقم الجوال",
-        hintText: "ادخل رقم الجوال",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: Icon(Icons.phone_android),
+  Container buildEmailFormField() {
+    return Container(
+      child: TextFormField(
+        controller: usercontroller,
+        keyboardType: TextInputType.number,
+        onSaved: (newValue) => email = newValue,
+        onChanged: (value) {
+          if (value.isNotEmpty) {
+            removeError(error: kEmailNullError);
+          } else if (emailValidatorRegExp.hasMatch(value)) {
+            removeError(error: kInvalidEmailError);
+          }
+          return null;
+        },
+        validator: (value) {
+          if (value!.isEmpty) {
+            addError(error: kEmailNullError);
+            return "";
+          } else if (!emailValidatorRegExp.hasMatch(value)) {
+            addError(error: kInvalidEmailError);
+            return "";
+          }
+          return null;
+        },
+        decoration: InputDecoration(
+          labelText: "رقم الجوال",
+          hintText: "ادخل رقم الجوال",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: Icon(Icons.phone_android),
+        ),
       ),
     );
   }

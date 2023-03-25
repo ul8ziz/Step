@@ -11,7 +11,7 @@ class LoginController extends GetxController {
   RxBool loading = false.obs;
 
   var error = false.obs;
-  var loginFun = "auth_api/login.php";
+  final loginFun = "auth_api/login.php";
 
   login({required UserName, required password})
         async {

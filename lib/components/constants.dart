@@ -11,9 +11,7 @@ const kPrimaryGradientColor =
   );
 const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
-
 const kAnimationDuration = Duration(milliseconds: 200);
-
 final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(20),
   fontWeight: FontWeight.bold,
@@ -44,7 +42,7 @@ const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";*/
 
 final otpInputDecoration = InputDecoration(
-  contentPadding: EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  contentPadding: EdgeInsets.symmetric(vertical: getProportionateScreenWidth(10)),
   border: outlineInputBorder(),
   focusedBorder: outlineInputBorder(),
   enabledBorder: outlineInputBorder(),
@@ -52,7 +50,7 @@ final otpInputDecoration = InputDecoration(
 
 OutlineInputBorder outlineInputBorder() {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
+    borderRadius: BorderRadius.circular(getProportionateScreenWidth(10)),
     borderSide: BorderSide(color: kTextColor),
   );
 }

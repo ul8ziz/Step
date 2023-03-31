@@ -40,9 +40,9 @@ class _SplashState extends State<Splash> {
             height: MediaQuery.of(context).size.height,
             decoration:  BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/logo.png"),
+                  image: AssetImage("assets/images/logoo.png"),
                   fit: BoxFit.fitWidth),
-              color: Colors.white,
+                  color: Colors.white,
             ),
             ),
           ),

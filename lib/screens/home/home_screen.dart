@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border.all(color: Color(0xFFCDCDCD)),
                           image: DecorationImage(
-                            image: AssetImage("assets/images/logo.png"),
+                            image: AssetImage("assets/images/logoo.png"),
                           ),
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(15),

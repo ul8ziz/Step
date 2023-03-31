@@ -44,10 +44,10 @@ class Latters extends StatelessWidget {
                                borderRadius: BorderRadius.circular(10),
                                boxShadow: [
                                  BoxShadow(
-                                   color: Colors.grey.withOpacity(0.5), //color of shadow
+                                   color: Colors.grey.withOpacity(0.3), //color of shadow
                                    spreadRadius: 2, //spread radius
                                    blurRadius: 6, // blur radius
-                                   offset: const Offset(0, 5), // changes position of shadow
+                                   offset: const Offset(0, 1), // changes position of shadow
                                  ),
                                  //you can set more BoxShadow() here
                                ],

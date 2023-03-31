@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../components/constants.dart';
@@ -20,16 +21,68 @@ class Notebook_Screen extends StatelessWidget {
               Column(
                 children: [
                   SizedBox(height: 30,),
-                  Itams1(press: () {
-                    Get.to(Details_Screen());
-                  }),
+                  Itams1(
+                      press1: () {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    Details_Screen(),
+                              ));
+                        });
+                      },
+                      press2: () {WidgetsBinding.instance.addPostFrameCallback((_) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  Details_Screen(),
+                            ));
+                      });}
+                  ),
                   SizedBox(height: 30,),
-                  Itams2(press: () {
-                    Get.to(Details_Screen());
-                  }),                  SizedBox(height: 30,),
-                  Itams3(press: () {
-                    Get.to(Details_Screen());
-                  }),                ],
+                  Itams2(
+                      press1: () {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    Details_Screen(),
+                              ));
+                        });
+                      },
+                      press2: () {WidgetsBinding.instance.addPostFrameCallback((_) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  Details_Screen(),
+                            ));
+                      });}
+                  ),
+                  SizedBox(height: 30,),
+                  Itams3(
+                      press1: () {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    Details_Screen(),
+                              ));
+                        });
+                      },
+                      press2: () {WidgetsBinding.instance.addPostFrameCallback((_) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  Details_Screen(),
+                            ));
+                      });}
+                  ),                ],
               )
             ],
           ),
@@ -37,7 +90,7 @@ class Notebook_Screen extends StatelessWidget {
       ),
     );
   }
-  Widget Itams2({press}){
+  Widget Itams2({press1,press2}){
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -53,7 +106,6 @@ class Notebook_Screen extends StatelessWidget {
                   )
               ),
               SizedBox(width: 10,),
-
             ],
           ),
           SizedBox(height: 10,),
@@ -65,19 +117,22 @@ class Notebook_Screen extends StatelessWidget {
                   image: "assets/images/logo.png",
                   category: "الصف السابع",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف الثامن",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف التاسع",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
                 SizedBox(width: getProportionateScreenWidth(20)),
               ],
@@ -87,7 +142,7 @@ class Notebook_Screen extends StatelessWidget {
       ),
     );
   }
-  Widget Itams3({press}){
+  Widget Itams3({press1,press2}){
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -113,37 +168,40 @@ class Notebook_Screen extends StatelessWidget {
                   image: "assets/images/logo.png",
                   category: "الصف الاول",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف الثاني",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف الثالث",
                   numOfBrands: '',
-                  press: press,
-                ),
+                  press1: press1,
+                  press2: press2,                ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف الرابع",
                   numOfBrands: '',
-                  press: press,
-                ),
+                  press1: press1,
+                  press2: press2,                ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف الخامس",
                   numOfBrands: '',
-                  press: press,
-                ),
+                  press1: press1,
+                  press2: press2,                ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف السادس",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
 
                 SizedBox(width: getProportionateScreenWidth(20)),
@@ -153,7 +211,7 @@ class Notebook_Screen extends StatelessWidget {
         ],
       ),
     );}
-  Widget Itams1({press}){
+  Widget Itams1({press1,press2}){
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -179,19 +237,22 @@ class Notebook_Screen extends StatelessWidget {
                   image: "assets/images/logo.png",
                   category: "الصف الاول ثانوي",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف الثاني ثانوي",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
                 SpecialOfferCard(
                   image: "assets/images/logo.png",
                   category: "الصف الثالث ثانوي",
                   numOfBrands: '',
-                  press: press,
+                  press1: press1,
+                  press2: press2,
                 ),
               ],
             ),
@@ -207,18 +268,19 @@ class SpecialOfferCard extends StatelessWidget {
     required this.category,
     required this.image,
     required this.numOfBrands,
-    required this.press,
+    required this.press1,
+    required this.press2,
   }) : super(key: key);
 
   final String category, image;
   final String numOfBrands;
-  final GestureTapCallback press;
+  final GestureTapCallback press1;
+  final GestureTapCallback press2;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
       child: GestureDetector(
-        onTap: press,
         child: SizedBox(
           width: getProportionateScreenWidth(200),
           height: getProportionateScreenWidth(100),
@@ -244,8 +306,8 @@ class SpecialOfferCard extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(15.0),
-                    vertical: getProportionateScreenWidth(10),
+                    horizontal: getProportionateScreenWidth(35.0),
+                    vertical: getProportionateScreenWidth(30),
                   ),
                   child: Text.rich(
                     TextSpan(
@@ -263,6 +325,51 @@ class SpecialOfferCard extends StatelessWidget {
                     ),
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    PopupMenuButton(
+                      position: PopupMenuPosition.under,
+                      itemBuilder: (context) => [
+                        PopupMenuItem(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: MediaQuery.of(context).size.height * .03,
+                          value: "1",
+                          onTap: press1,
+                          child: Text(
+                            textAlign: TextAlign.center,
+                            "الشعبه أ".tr,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: kPrimaryColor,
+                            ),
+                          ),
+                        ),
+                        PopupMenuItem(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: MediaQuery.of(context).size.height * .06,
+                          value: "2",
+                          onTap: press2,
+                          child: Text(
+                            "الشعبة ب".tr,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: kPrimaryColor),
+                          ),
+                        ),
+                      ],
+                      child: SizedBox(
+                        height: 30,
+                        width: 40,
+                        child: Icon(Icons.dehaze,
+                          color: Colors.white,)
+                       // SvgPicture.asset('assets/icons/dots.svg', color: Colors.red,),
+                      ),
+                    ),
+                  ],
+                ),
+
               ],
             ),
           ),

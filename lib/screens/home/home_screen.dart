@@ -88,10 +88,10 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width * .9,
                 height: MediaQuery.of(context).size.height * .20,
                 child: Swiper(
                   duration:1500,
+                  viewportFraction : .8,
                   outer: true,
                   itemCount: 3,
                   autoplay: true,
@@ -164,10 +164,10 @@ class HomeScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 3,
+                color: Colors.grey.withOpacity(0.4),
+                spreadRadius: 0,
                 blurRadius: 9,
-                offset: const Offset(2, 2)
+                offset: const Offset(0, 0)
             ),
           ],
         ),

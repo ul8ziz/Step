@@ -26,6 +26,9 @@ islogin(){
 const isShowLoginPage = 'isShowLoginPage';
 const isShowOnBoardingPage = 'OnBoarding';
 const userInfoKey = 'userInfo';
+const userInfoname = 'userInfoname';
+const userInfoid = 'id_std';
+const userInfoKeyfather_phone = 'userInfoKeyfather_phone';
 
 
 

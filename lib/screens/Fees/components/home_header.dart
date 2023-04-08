@@ -14,8 +14,8 @@ class HomeHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
     Container(
-    height:getProportionateScreenHeight(60),
-    width:SizeConfig.screenWidth,
+      height:getProportionateScreenHeight(60),
+      width:SizeConfig.screenWidth,
       decoration: BoxDecoration(
         color: Color(0xFFF5F6F9),
         boxShadow: [
@@ -26,12 +26,15 @@ class HomeHeader extends StatelessWidget {
               offset: const Offset(0, 2)),
         ],
       ),
-      child:Center(child: Text('اشعارات النتائج',
-        style: TextStyle(
-          color: kPrimaryColor,
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),)),
+      child:Center(
+          child: Text(
+            'اشعارات الرسوم',
+             style: TextStyle(
+                color: kPrimaryColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,),
+          ),
+      ),
       /* TextField(
         onChanged: (value) => print(value),
         decoration: InputDecoration(
@@ -54,7 +57,7 @@ class HomeHeader extends StatelessWidget {
           numOfitem: 3,
           press: () {},
         ),*/
-    ),]
-    );
+     ),
+      ]);
   }
 }

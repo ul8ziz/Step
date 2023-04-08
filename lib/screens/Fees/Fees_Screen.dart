@@ -38,15 +38,16 @@ class Fees_Screen extends StatelessWidget {
                             data: feesController.Feeslist[index].dateFz);
                         }
                     ),
-                  )
-                  :Container(
+                  ):
+                  Container(
                     margin: EdgeInsets.symmetric(vertical: 300),
                     child: Center(
                       child: CircularProgressIndicator(
                         color: kPrimaryColor,
                       ),
                     ),
-                  ))
+                  ),
+                  ),
                 ],
               )
             ],

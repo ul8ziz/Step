@@ -1,46 +1,40 @@
-import 'dart:core';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../BottomNavBar.dart';
 import '../Global/enumMethod.dart';
 import '../global/queryModel.dart';
-import '../components/GetStorage.dart';
-import '../components/constants.dart';
-import '../models/NotificationModel.dart';
 import '../models/ResultModel.dart';
-import '../models/UserInfoModel.dart';
 
 class ResultController extends GetxController {
-
-  List<ResultModel> ResultControllerlist = <ResultModel>[].obs;
-
-
+  late ResultModel ResultControllerlist;
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    getResul();
   }
   RxBool loading = false.obs;
   var error = false.obs;
-  var degreeFun = "degree_api/result.php";
+  var degreeFun = "degree_api/show_degree.php";
 
-  getResul() async {
+  getResul({
+    required class_id,
+    required level_id}) async {
           loading.value = true;
           try {
             var data = await getDate(
                 url: degreeFun,
                 method: HttpMethod.post,
                 body: {
-              "class":"2",
-              "level":"4"
-                }
-                );
+                    "class_id":class_id,
+                    "level_id":level_id
+                });
+            print('===================================================');
+            print('${data['data']}');
             if (data.isNotEmpty) {
-              ResultControllerlist = ResultModel.fromJsonList(data);
+              ResultControllerlist = ResultModel.fromJson(data);
               loading.value = false;
-           //  print('-------------${ data['data'][0]['name_std']}');
-            } else {
+             // print('+++++++++++++++++++++++++++++++++++++++++++++++++++');
+             //print('${ResultControllerlist.data?[0].degreeImg}');
+            }
+            else {
               print('no date isEmpty');
               loading.value = false;
             }

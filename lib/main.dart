@@ -16,7 +16,6 @@ void main() async {
     }
   });
   await GetStorage.init();
-
 }
 enum MenuState { home, notification, profile }
 class MyApp extends StatelessWidget {

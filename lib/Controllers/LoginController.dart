@@ -6,8 +6,11 @@ import '../Global/enumMethod.dart';
 import '../global/queryModel.dart';
 import '../components/GetStorage.dart';
 import '../components/constants.dart';
+import 'UserInfoController.dart';
 
 class LoginController extends GetxController {
+  final UserInfoController userInfoController = Get.put(UserInfoController());
+
   RxBool loading = false.obs;
 
   var error = false.obs;
@@ -17,7 +20,9 @@ class LoginController extends GetxController {
         async {
           loading.value = true;
           try {
-            var data = await getDate(url: loginFun, method: HttpMethod.post, body: {
+            var data = await getDate(url: loginFun,
+                method: HttpMethod.post,
+                body: {
                 "phone":"$UserName",
                 "password":"$password"
               }
@@ -40,6 +45,7 @@ class LoginController extends GetxController {
             }
             else {
               loading.value = false;
+              userInfoController.getUserInfo(UserName: UserName, password: password);
               Get.offAll( BottomNavBar());
               writeGetStorage(isShowLoginPage,true);
               Get.snackbar(

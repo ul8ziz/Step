@@ -33,7 +33,7 @@ class FeesController extends GetxController {
                 url: degreeFun,
                 method: HttpMethod.post,
                 body: {
-                  "student":2
+                  "student":readGetStorage(userInfoid)
                 }
                 );
             if (data.isNotEmpty) {

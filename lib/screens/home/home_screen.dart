@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../Controllers/NotificationController.dart';
 import '../../Controllers/ResultController.dart';
 import '../../Controllers/UserInfoController.dart';
+import '../../components/GetStorage.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
 import '../Fees/Fees_Screen.dart';
@@ -14,8 +17,6 @@ import 'components/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
   final NotificationController notificationController = Get.put(NotificationController());
-  final UserInfoController userInfoController = Get.put(UserInfoController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +60,6 @@ class HomeScreen extends StatelessWidget {
                                },
                                svgFile: "assets/icons/notes.svg"
                            ),
-
-
                       ],
                     )),
               ),
@@ -80,7 +79,19 @@ class HomeScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(20)),
     );
   }
-
+  Widget imagee(String thumbnail) {
+    String placeholder = "$thumbnail";
+    if (thumbnail?.isEmpty ?? true)
+      thumbnail = placeholder;
+    else {
+      if (thumbnail.length % 4 > 0) {
+        thumbnail += '=' * (4 - thumbnail .length % 4); // as suggested by Albert221
+      }
+    }
+    final _byteImage = Base64Decoder().convert(thumbnail);
+    Widget image = Image.memory(_byteImage);
+    return image;
+  }
   Widget OfferWidget(context) {
     return
       Visibility(
@@ -153,7 +164,6 @@ class HomeScreen extends StatelessWidget {
           )
       );
   }
-
   Widget items( {title,goTo,svgFile}){
     return
       InkWell(

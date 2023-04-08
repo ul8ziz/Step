@@ -94,12 +94,11 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-                Obx(()=>
-                !userInfoController.loading.value?
+
                 Column(
                   children: [
                     Center(child:
-                    Text('${userInfoController.UserInfoControllerlist.data?.nameStd.toString()}'
+                    Text('${readGetStorage(userInfoname)}'
                       ,style: TextStyle(
                           color: kPrimaryColor,
                           fontSize: 15
@@ -107,23 +106,18 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     ),
                     Center(child:
-                    Text('${userInfoController.UserInfoControllerlist.data?.fatherPhone.toString()}'
+                    Text('${readGetStorage(userInfoKeyfather_phone)}'
                       ,style: TextStyle(
                           color: kPrimaryColor,
                           fontSize: 15
                       ),
                     ),
-
                     )
-                  ],)
-                    :widgetButtonProgress(
-                  context,
-                  width: MediaQuery.of(context).size.width,
-                ),),
-                    SizedBox(height: 10),
+                  ],
+                ),
+                SizedBox(height: 10),
                 ProfileMenu(
                   text: "حسابي",
-                  //text: "My Account",
                   icon: "assets/icons/User Icon.svg",
                   press: () => {},
                 ),
@@ -238,7 +232,8 @@ class ProfileScreen extends StatelessWidget {
                     Get.to( Team_screen());
 
                   },
-                ), ProfileMenu(
+                ),
+                ProfileMenu(
                   text: "سياسة الخصوصية",
                  // text: "Help Center",
                   icon: "assets/icons/Question mark.svg",
@@ -255,53 +250,27 @@ class ProfileScreen extends StatelessWidget {
                     Get.bottomSheet(
                       Padding(
                         padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context)
-                                .size
-                                .height *
-                                .2),
+                            bottom: MediaQuery.of(context).size.height * .2),
                         child: Center(
                           child: Container(
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius:
-                                BorderRadius.circular(
-                                    10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             alignment: Alignment.topCenter,
                             padding: EdgeInsets.only(
-                              left: MediaQuery.of(context)
-                                  .size
-                                  .width *
-                                  .06,
-                              right: MediaQuery.of(context)
-                                  .size
-                                  .width *
-                                  .06,
+                              left: MediaQuery.of(context).size.width * .06,
+                              right: MediaQuery.of(context).size.width * .06,
                             ),
                             margin: EdgeInsets.symmetric(
-                              horizontal:
-                              MediaQuery.of(context)
-                                  .size
-                                  .width *
-                                  .03,
+                              horizontal: MediaQuery.of(context).size.width * .03,
                               vertical:
-                              MediaQuery.of(context)
-                                  .size
-                                  .width *
-                                  .03,
+                              MediaQuery.of(context).size.width * .03,
                             ),
-                            height: MediaQuery.of(context)
-                                .size
-                                .height *
-                                .18,
-                            width: MediaQuery.of(context)
-                                .size
-                                .width *
-                                .8,
+                            height: MediaQuery.of(context).size.height * .18,
+                            width: MediaQuery.of(context).size.width * .8,
                             child: SizedBox(
                               child: Column(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment
-                                      .spaceAround,
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                    Text(
                                         'تسجيل الخروج',
@@ -310,9 +279,7 @@ class ProfileScreen extends StatelessWidget {
                                           fontSize: 18
                                         ),),
                                     Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment
-                                          .spaceAround,
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         InkWell(
                                             onTap: () {
@@ -387,8 +354,7 @@ class ProfileScreen extends StatelessWidget {
                       backgroundColor: Colors.transparent,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                        BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     );
 

@@ -8,6 +8,7 @@ import 'Results_Details_Screen.dart';
 import 'components/home_header.dart';
 
 class Results_Screen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +23,15 @@ class Results_Screen extends StatelessWidget {
                     children: [
                       SizedBox(height: 30,),
                       Itams1(press: () {
-                        Get.to(Results_Details_Screen());
+                        Get.to(Results_Details_Screen('3','4'));
                       }),
                       SizedBox(height: 30,),
                       Itams2(press: () {
-                        Get.to(Results_Details_Screen());
-                      }),                  SizedBox(height: 30,),
+                        Get.to(Results_Details_Screen('1','1'));
+                      }),
+                      SizedBox(height: 30,),
                       Itams3(press: () {
-                        Get.to(Results_Details_Screen());
+                        Get.to(Results_Details_Screen('3','2'));
                       }),                ],
                   )
                 ],

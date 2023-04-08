@@ -1,8 +1,3 @@
-import 'dart:convert';
-
-UserInfoModel UserInfoModelFromJson(str) => UserInfoModel.fromJson(str);
-
-
 class UserInfoModel {
   bool? loginStatus;
   String? message;
@@ -11,10 +6,8 @@ class UserInfoModel {
   UserInfoModel.fromJson(Map<String, dynamic> json) {
     loginStatus = json['loginStatus'];
     message = json['message'];
-    data = json['data'] != null ?  Data.fromJson(json['data']) : null;
-  }
-
-
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    }
   }
 
 
@@ -30,7 +23,6 @@ class Data {
   String? nameStd;
   String? fatherPhone;
 
-
   Data.fromJson(Map<String, dynamic> json) {
     idSt = json['id_st'];
     idStd = json['id_std'];
@@ -43,7 +35,4 @@ class Data {
     nameStd = json['name_std'];
     fatherPhone = json['father_phone'];
   }
-
-
-
 }

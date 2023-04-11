@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/constants.dart';
-import '../../../components/size_config.dart';
+import 'constants.dart';
+import 'size_config.dart';
 
 class HomeHeader extends StatelessWidget {
+  final String title;
+
   const HomeHeader({
-    Key? key,
+    Key? key, required this.title,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class HomeHeader extends StatelessWidget {
               offset: const Offset(0, 2)),
         ],
       ),
-      child:Center(child: Text(' دفتر المتابعة',
+      child:Center(child: Text(' $title',
         style: TextStyle(
           color: kPrimaryColor,
           fontWeight: FontWeight.bold,

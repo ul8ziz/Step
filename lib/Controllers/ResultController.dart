@@ -11,6 +11,7 @@ class ResultController extends GetxController {
     super.onInit();
   }
   RxBool loading = false.obs;
+  RxBool isEmpty = false.obs;
   var error = false.obs;
   var degreeFun = "degree_api/show_degree.php";
 
@@ -26,17 +27,29 @@ class ResultController extends GetxController {
                     "class_id":class_id,
                     "level_id":level_id
                 });
-            print('===================================================');
-            print('${data['data']}');
-            if (data.isNotEmpty) {
-              ResultControllerlist = ResultModel.fromJson(data);
-              loading.value = false;
-             // print('+++++++++++++++++++++++++++++++++++++++++++++++++++');
-             //print('${ResultControllerlist.data?[0].degreeImg}');
-            }
-            else {
-              print('no date isEmpty');
-              loading.value = false;
+           // print('===================================================');
+           // print('${data['data']}');
+            if(data['loginStatus'].toString()=='false'){
+              isEmpty.value = true;
+              print('=====loginStatus==false====');
+            }else{
+              if(data['Status'].toString()=='false'){
+                isEmpty.value = true;
+                print('=====Status==false====');
+              }else{
+                if (data.isNotEmpty) {
+                  print(' date NotEmpty');
+                  ResultControllerlist = ResultModel.fromJson(data);
+                  loading.value = false;
+                  isEmpty.value = false;
+                   print('+++++++++++++++++++++++++++++++++++++++++++++++++++');
+                  //print('${ResultControllerlist.data?[0].degreeImg}');
+                }
+                else {
+                  print(' date isEmpty');
+                  loading.value = false;
+                }
+              }
             }
           } catch (e) {
             loading.value = false;

@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../Controllers/ResultController.dart';
+import '../../Controllers/noteBook_Controller.dart';
 import '../../components/constants.dart';
 import '../../components/size_config.dart';
 import '../Details/Details_Viwe.dart';
 import '../../components/home_header.dart';
 
-class Results_Details_Screen extends StatelessWidget {
-  final ResultController controller = Get.put(ResultController());
+class NoteBook_Details_Screen extends StatelessWidget {
+  final noteBook_Controller controller = Get.put(noteBook_Controller());
   final String class_id;
   final String level_id;
 
-  Results_Details_Screen(this.level_id, this.class_id);
+  NoteBook_Details_Screen(this.level_id, this.class_id);
 
   @override
   void initState()async {
-    await controller.getResul(class_id: class_id, level_id: level_id);
+    await controller.getnoteBook(class_id: class_id, level_id: level_id);
   }
+
+
   @override
   Widget build(BuildContext context) {
-    controller.getResul(class_id: class_id, level_id: level_id);
+    controller.getnoteBook(class_id: class_id, level_id: level_id);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -27,7 +30,7 @@ class Results_Details_Screen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              HomeHeader(title: 'النتائج',),
+              HomeHeader(title: 'دفتر المتابعة',),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,16 +47,16 @@ class Results_Details_Screen extends StatelessWidget {
                     height: getProportionateScreenHeight(680),
                     child: ListView.builder(
                         scrollDirection: Axis.vertical,
-                        itemCount: controller.ResultControllerlist.data?.length,
+                        itemCount: controller.noteBookControllerlist.length,
                         itemBuilder: (context, index) {
                           return
                             Container(
                               margin: EdgeInsets.only(top: 20),
                               child: Itams(context,
-                                  imge:!controller.isEmpty.value?  getImge(uplodeUrl: '${controller.ResultControllerlist.data?[index].imgName.toString()}')
+                                  imge:!controller.isEmpty.value?  getImge(uplodeUrl: '${controller.noteBookControllerlist[index].hw_img.toString()}')
                                       :'https://png.pngtree.com/png-vector/20200616/ourlarge/pngtree-cartoon-style-wooden-multi-directional-guidance-sign-png-image_2257074.jpg',
-                                  date_upload: controller.ResultControllerlist.data?[index].dateUpload.toString()??'لم يتم التعيين',
-                                  class_: !controller.isEmpty.value? '${controller.ResultControllerlist.data?[index].nameClass } ${controller.ResultControllerlist.data?[index].nameLevel}':'لم يتم التعيين'),
+                                  date_upload: controller.noteBookControllerlist[index].date_hw.toString()??'لم يتم التعيين',
+                                  class_: !controller.isEmpty.value? '${controller.noteBookControllerlist[index].name_class } ${controller.noteBookControllerlist[index].name_level}':'لم يتم التعيين'),
                             );
                         }
                     )):Center(
@@ -90,7 +93,7 @@ class Results_Details_Screen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text('نتائج '+'$class_',
+              Text('دفتر المتابعة '+'$class_',
               style: TextStyle(
                 color: kPrimaryColor,
               ),),

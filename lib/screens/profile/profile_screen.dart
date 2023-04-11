@@ -317,6 +317,10 @@ class ProfileScreen extends StatelessWidget {
                                             onTap: () {
                                               clearGetStorage(isShowOnBoardingPage);
                                               clearGetStorage(isShowLoginPage);
+                                              clearGetStorage(userInfoKey);
+                                              clearGetStorage(userInfoname);
+                                              clearGetStorage(userInfoid);
+                                              clearGetStorage(userInfoKeyfather_phone);
                                               Get.offAll(SignInScreen());
                                             },
                                             child:

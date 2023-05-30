@@ -23,9 +23,7 @@ class Team_screen extends StatelessWidget {
               Container(
                 width: 600,
                 height: 600,
-                child:  SvgPicture.asset(
-                  "assets/icons/team.svg",
-                ),),
+                child: Image.asset("assets/icons/taaaam.png",)),
             ],
           ),
         )),

@@ -20,7 +20,6 @@ getDate({
   if (connectivityResult == ConnectivityResult.wifi ||
       connectivityResult == ConnectivityResult.mobile) {
     print('coronation ${method.toString()}');
-    print('coronation2 ${method.toString()=='HttpMethod.put'}');
     if (method.toString() == 'HttpMethod.post') {
       var result = await http.post(requestUri,
           body: requestBody,

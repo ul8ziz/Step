@@ -35,7 +35,7 @@ class Latters extends StatelessWidget {
                      return
                            Container(
                              width: getProportionateScreenWidth(345),
-                             height: getProportionateScreenHeight(100),
+                             height: getProportionateScreenHeight(110),
                              margin: EdgeInsets.symmetric(
                                horizontal: getProportionateScreenWidth(10),
                                vertical: getProportionateScreenWidth(5),),
@@ -79,7 +79,7 @@ class Latters extends StatelessWidget {
                                              children: [
                                                Expanded(
                                                    child:
-                                                   Text(notificationController.notificationlist[index].message,
+                                                   Text(notificationController.notificationlist[index].notification_title,
                                                        style: TextStyle(
                                                          fontSize: 14,
                                                        ))

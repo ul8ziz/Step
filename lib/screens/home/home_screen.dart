@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                             goTo: (){ Get.to(Results_Screen());},
                             svgFile: "assets/icons/pngegg.svg"
                         ),
-                         items(title: 'ملاحظات',
+                         items(title: 'طالب الاسبوع',
                                goTo: (){
                                  // Get.to(Results_Screen());
                                },

@@ -479,7 +479,6 @@ class Results_Screen extends StatelessWidget {
                                   Results_Details_Screen('3','6')                        ));
                     });},
                 ),
-
                 SizedBox(width: getProportionateScreenWidth(20)),
               ],
             ),

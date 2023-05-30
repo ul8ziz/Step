@@ -1,6 +1,6 @@
 import 'dart:io';
 
-final baseUrl = "https://ul8ziz.online/school/masterApi/api/";
+final baseUrl = "https://sabaatrading.com/school/masterApi/api/";
 
 var action = "Action";
 var add = "add";
@@ -13,5 +13,4 @@ var AllrequestHeader = {
   HttpHeaders.contentTypeHeader: 'application/json',
   HttpHeaders.acceptCharsetHeader:'utf-8',
 };
-
 

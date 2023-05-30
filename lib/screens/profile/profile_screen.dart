@@ -94,7 +94,6 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-
                 Column(
                   children: [
                     Center(child:
@@ -115,12 +114,13 @@ class ProfileScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 30),
+                /*
                 ProfileMenu(
                   text: "حسابي",
                   icon: "assets/icons/User Icon.svg",
                   press: () => {},
-                ),
+                ),*/
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     width: 350,
@@ -173,7 +173,7 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                /*SizedBox(height: 10),
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     width: 350,
@@ -223,7 +223,7 @@ class ProfileScreen extends StatelessWidget {
                           )),
                     ],
                   ),
-                ),
+                ),*/
                 ProfileMenu(
                   text: "فريق المشروع",
                  // text: "Help Center",

@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:Step/components/size_config.dart';
 
 getImge({required uplodeUrl}){
-  final baseUplodeUrl = "http://ul8ziz.online/school/dashboard/upload/";
+  final baseUplodeUrl = "https://sabaatrading.com/school/dashboard/upload/";
   var imageUri = baseUplodeUrl + '$uplodeUrl';
   print(imageUri.toString());
   return   imageUri.toString();
 }
-
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor =

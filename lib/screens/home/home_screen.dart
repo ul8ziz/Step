@@ -41,19 +41,19 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: MediaQuery.of(context).size.width * .04,
                       crossAxisCount: 2,
                       children: <Widget>[
-                        items(title: 'دفتر المتابعه',
+                        items(title: 'FollowUpBook'.tr,
                             goTo: (){ Get.to(Notebook_Screen());},
                           svgFile: "assets/icons/notbook.svg"
                         ),
-                        items(title: 'اشعارات الرسوم ',
+                        items(title: 'FeeNotices'.tr,
                             goTo: (){ Get.to(Fees_Screen());},
                             svgFile: "assets/icons/notfation.svg"
                         ),
-                        items(title: 'اشعارات النتائج',
+                        items(title: 'ResultsNotifications'.tr,
                             goTo: (){ Get.to(Results_Screen());},
                             svgFile: "assets/icons/pngegg.svg"
                         ),
-                         items(title: 'طالب الاسبوع',
+                         items(title: 'studentWeek'.tr,
                                goTo: (){
                                  // Get.to(Results_Screen());
                                },
@@ -192,6 +192,7 @@ class HomeScreen extends StatelessWidget {
         ),
 
         Text(title,
+        textAlign: TextAlign.center,
         style: TextStyle(
           color: kPrimaryColor,
           fontWeight: FontWeight.normal,

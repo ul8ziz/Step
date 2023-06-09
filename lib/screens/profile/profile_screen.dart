@@ -41,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child:Center(child: Text('الاعدادات',
+                        child:Center(child: Text('sitting'.tr,
                           style: TextStyle(
                             color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
@@ -143,7 +143,7 @@ class ProfileScreen extends StatelessWidget {
                             BorderRadius.circular(12),
                             hint: Padding(
                               padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .03),
-                              child: Text('اللغة',
+                              child: Text("language".tr,
                               style: TextStyle(
                                 color: kPrimaryColor
                               ),)
@@ -155,7 +155,7 @@ class ProfileScreen extends StatelessWidget {
                                   onTap: () {
                                     controller
                                         .changeLanguageArabic();
-                                    Get.offAll(BottomNavBar(i: 2,));
+                                    Get.offAll(BottomNavBar(i: 0,));
 
                                   }),
                               DropdownMenuItem(
@@ -225,7 +225,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),*/
                 ProfileMenu(
-                  text: "فريق المشروع",
+                  text: "projectTeam".tr,
                  // text: "Help Center",
                   icon: "assets/icons/Discover.svg",
                   press: () {
@@ -234,7 +234,7 @@ class ProfileScreen extends StatelessWidget {
                   },
                 ),
                 ProfileMenu(
-                  text: "سياسة الخصوصية",
+                  text: "privacyPolicy".tr,
                  // text: "Help Center",
                   icon: "assets/icons/Question mark.svg",
                   press: () {
@@ -243,7 +243,7 @@ class ProfileScreen extends StatelessWidget {
                   },
                 ),
                 ProfileMenu(
-                  text: "تسجيل الخروج",
+                  text: "signOut".tr,
                  // text: "Log Out",
                   icon: "assets/icons/Log out.svg",
                   press: () {
@@ -273,7 +273,7 @@ class ProfileScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                    Text(
-                                        'تسجيل الخروج',
+                                        'signOut'.tr,
                                         style: TextStyle(
                                           color: Colors.red,
                                           fontSize: 18

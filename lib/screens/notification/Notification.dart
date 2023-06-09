@@ -21,7 +21,27 @@ class Latters extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    HomeHeader(),
+                    Container(
+                      height:getProportionateScreenHeight(60),
+                      width:SizeConfig.screenWidth,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF5F6F9),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: -2,
+                              blurRadius: 9,
+                              offset: const Offset(0, 2)),
+                        ],
+                      ),
+                      child:Center(child: Text('notifications'.tr,
+                        style: TextStyle(
+                          color: kPrimaryColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),)),
+
+                    ),
                     SizedBox(height: 10,),
                 Obx(() =>
                 !notificationController.loading.value?

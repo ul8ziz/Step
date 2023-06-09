@@ -11,4 +11,17 @@ const Map<String, String> en = {
   'identificationNumber': 'Identification Number',
   'email': 'Email',
   'main': 'Home',
+  'sitting': 'Settings',
+  'language': 'Language',
+  'projectTeam': 'Project team',
+  'signOut': 'Sign out',
+  'FollowUpBook': 'Follow-up book',
+  'FeeNotices': 'Fee notices',
+  'ResultsNotifications': 'Results notifications',
+  'studentWeek': 'student of week',
+  'notifications': 'Notifications',
+  'privacyPolicy': 'privacy policy',
+
+
+
 };

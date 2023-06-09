@@ -11,4 +11,17 @@ const Map<String, String> ar = {
   'identificationNumber': 'رقم الهوية',
   'email': 'الإيميل',
   'main': 'الرئيسية',
+  'sitting': 'الاعدادات',
+  'language': 'اللغة',
+  'projectTeam': 'فريق المشروع',
+  'signOut': 'تسجيل الخروج',
+  'FollowUpBook': 'دفتر المتابعه',
+  'FeeNotices': 'اشعارات الرسوم',
+  'ResultsNotifications': 'اشعارات النتائج',
+  'studentWeek': 'طالب الاسبوع',
+  'notifications': 'الاشعارات',
+  'privacyPolicy': 'سياسة الخصوصية',
+
+
+
 };

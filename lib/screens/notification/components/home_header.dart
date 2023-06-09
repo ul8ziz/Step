@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../components/constants.dart';
 import '../../../components/size_config.dart';
@@ -26,35 +27,15 @@ class HomeHeader extends StatelessWidget {
               offset: const Offset(0, 2)),
         ],
       ),
-      child:Center(child: Text('الاشعارات',
+      child:Center(child: Text('notifications'.tr,
         style: TextStyle(
           color: kPrimaryColor,
           fontWeight: FontWeight.bold,
           fontSize: 20,
         ),)),
-      /* TextField(
-        onChanged: (value) => print(value),
-        decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(20),
-                vertical: getProportionateScreenWidth(9)),
-            border: InputBorder.none,
-            focusedBorder: InputBorder.none,
-            enabledBorder: InputBorder.none,
-            hintText: "Search product",
-            prefixIcon: Icon(Icons.search)),
-      ),
+
     ),
-         IconBtnWithCounter(
-          svgSrc: "assets/icons/Cart Icon.svg",
-          press: () => Navigator.pushNamed(context, CartScreen.routeName),
-        ),
-        IconBtnWithCounter(
-          svgSrc: "assets/icons/Bell.svg",
-          numOfitem: 3,
-          press: () {},
-        ),*/
-    ),]
+      ]
     );
   }
 }
